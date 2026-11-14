@@ -167,6 +167,15 @@ def main():
     })
     history_path.write_text(json.dumps(history, ensure_ascii=False, indent=2) + "\n")
 
+    # サイト(docs/)に動画のページを足す。失敗しても投稿の記録は残す(記録がないと同じ作品をまた選んでしまう)
+    if meta.get("site"):
+        try:
+            import site_gen
+            site_gen.add(site_gen.entry_from(meta, video_id, history[-1]["uploaded_at"]), out / "closeup.jpg")
+            site_gen.build()
+        except Exception as e:
+            print(f"警告: サイトのページを作れませんでした: {e}", file=sys.stderr)
+
 
 if __name__ == "__main__":
     main()

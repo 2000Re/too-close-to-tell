@@ -124,6 +124,8 @@ def render(img, spot, text, tts, out):
         return im
 
     M.render(out / "video.mp4", wav, end, frame)
+    # サイトの一覧に出す、どアップの1枚(文字なし・答えが分からない)
+    view(0.0).convert("RGB").resize((360, 640), Image.Resampling.LANCZOS).save(out / "closeup.jpg", quality=85)
     # サムネイル用に、答えの場面の1枚も残す
     frame(at["info"] + 1.0).convert("RGB").save(out / "reveal.jpg", quality=90)
     return end

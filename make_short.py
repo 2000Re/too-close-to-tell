@@ -22,6 +22,7 @@ import video
 TZ = ZoneInfo("Asia/Tokyo")
 MAX_LOOKUPS = 40            # 1つのカテゴリで作品を何点まで調べるか
 HASHTAGS = "#whatisit #guess #closeup #museum #shorts"
+SITE = "https://2000re.github.io/too-close-to-tell"
 
 
 def candidates(cat, rng):
@@ -64,6 +65,7 @@ def description(o, text):
         text["say_info"],
         "",
         f"Details: {o.get('objectURL') or 'https://www.metmuseum.org/'}",
+        f"More mystery close-ups: {SITE}/",
         "Image: The Metropolitan Museum of Art, Open Access (CC0). This channel is not affiliated with the museum.",
         "",
         HASHTAGS,
@@ -126,6 +128,15 @@ def main():
                  K.CATEGORIES[cat][4]],
         "answer": text["answer"],
         "spot": [round(v) for v in s[:3]],
+        "site": {
+            "answer": text["answer"],
+            "title": text["title"],
+            "info": text["say_info"],
+            "meta": text["meta"],
+            "image": o.get("primaryImageSmall") or o.get("primaryImage"),
+            "museum_url": o.get("objectURL") or f"https://www.metmuseum.org/art/collection/search/{o['objectID']}",
+            "category": cat,
+        },
         "video": "video.mp4",
         "seconds": round(seconds, 1),
     }
