@@ -74,17 +74,18 @@ def round_age(age):
 
 
 def video_title(o, number):
-    """YouTube の題名(答えは書かない)。年代が分かれば「〇〇年前の物」として毎回変える。"""
+    """(YouTube の題名, 型)。答えは書かない。年代が分かれば「〇〇年前の物」として毎回変える。
+    型は upload_history.json の title_style に残り、stats.md で型ごとの再生数を比べられる。"""
     _, age = when(o)
     adj = adjective(o)
     if age and age >= 100:
         years = f"{round_age(age):,}-year-old"
         if adj and number % 2 == 0:
-            return f"What is this {years} {adj} object? 🔍"
-        return f"Can you guess this {years} object? 🔍"
+            return f"What is this {years} {adj} object? 🔍", "age_culture"
+        return f"Can you guess this {years} object? 🔍", "age"
     if adj:
-        return f"Can you guess this {adj} object? 🔍"
-    return "Can you tell what this is? 🔍"
+        return f"Can you guess this {adj} object? 🔍", "culture"
+    return "Can you tell what this is? 🔍", "plain"
 
 
 def texts(o, cat):
