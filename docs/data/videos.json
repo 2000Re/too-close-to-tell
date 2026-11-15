@@ -37,5 +37,18 @@
   "image": "https://images.metmuseum.org/CRDImages/aa/web-large/LC-36_25_624-001.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/31797",
   "category": "shield"
+ },
+ {
+  "number": 4,
+  "slug": "4-guitar",
+  "video_id": "2DptNRUNwTA",
+  "uploaded_at": "2026-11-15T12:43:22+00:00",
+  "answer": "A guitar",
+  "title": "Guitar",
+  "info": "An American guitar by Joseph Bini, from 1870. That's over 150 years old!",
+  "meta": "Joseph Bini, ca. 1870 · Spruce, rosewood, ebony",
+  "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP242801.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/506104",
+  "category": "guitar"
  }
 ]
