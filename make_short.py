@@ -122,7 +122,7 @@ def main():
         "object_title": text["title"],
         "object_url": o.get("objectURL"),
         "date": now.date().isoformat(),
-        "title": f"[{number}] What is this? Guess before it zooms out 🔍",
+        "title": f"[{number}] {describe.video_title(o, number)}",
         "description": description(o, text),
         "tags": ["what is it", "guess the object", "close up", "zoom out", "museum", "quiz",
                  K.CATEGORIES[cat][4]],

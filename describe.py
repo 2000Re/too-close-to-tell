@@ -66,6 +66,27 @@ def article(word):
     return "an" if word[:1].lower() in "aeiou" else "a"
 
 
+def round_age(age):
+    """題名に出す年数(実際の年数を超えないように切り下げる): 254 → 250、516 → 500、137 → 130。"""
+    if age >= 200:
+        return age // 50 * 50
+    return age // 10 * 10
+
+
+def video_title(o, number):
+    """YouTube の題名(答えは書かない)。年代が分かれば「〇〇年前の物」として毎回変える。"""
+    _, age = when(o)
+    adj = adjective(o)
+    if age and age >= 100:
+        years = f"{round_age(age):,}-year-old"
+        if adj and number % 2 == 0:
+            return f"What is this {years} {adj} object? 🔍"
+        return f"Can you guess this {years} object? 🔍"
+    if adj:
+        return f"Can you guess this {adj} object? 🔍"
+    return "Can you tell what this is? 🔍"
+
+
 def texts(o, cat):
     _, _, _, answer, noun = K.CATEGORIES[cat]
     adj, who = adjective(o), maker(o)
