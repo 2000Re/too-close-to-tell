@@ -24,5 +24,18 @@
   "image": "https://images.metmuseum.org/CRDImages/aa/web-large/25.188.21_007AA2015.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/22901",
   "category": "helmet"
+ },
+ {
+  "number": 3,
+  "slug": "3-shield",
+  "video_id": "FZyj7clM7sM",
+  "uploaded_at": "2026-11-15T07:42:58+00:00",
+  "answer": "A shield",
+  "title": "Shield",
+  "info": "A shield from Philippines. That's over 120 years old!",
+  "meta": "Philippine, Mindanao, 18th–19th century · Wood, polychromy",
+  "image": "https://images.metmuseum.org/CRDImages/aa/web-large/LC-36_25_624-001.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/31797",
+  "category": "shield"
  }
 ]
