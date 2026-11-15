@@ -73,18 +73,59 @@ def round_age(age):
     return age // 10 * 10
 
 
-def video_title(o, number):
-    """(YouTube の題名, 型)。答えは書かない。年代が分かれば「〇〇年前の物」として毎回変える。
-    型は upload_history.json の title_style に残り、stats.md で型ごとの再生数を比べられる。"""
+def year_phrase(o):
+    """'around 1550' / 'in 1693' / 'in the 15th century'(題名用、短く)。"""
+    b, e = o.get("objectBeginDate"), o.get("objectEndDate")
+    if not isinstance(b, int) or not isinstance(e, int) or b <= 0 or e < b:
+        return None
+    if b == e:
+        return f"in {b}"
+    if e - b <= 30:
+        return f"around {round((b + e) / 2 / 10) * 10}"
+    if e - b <= 110:
+        c = (b + e) // 2 // 100 + 1
+        return f"in the {c}th century" if 4 <= c <= 20 else None
+    return None
+
+
+# 題名の型(答えは書かない)。{years}: '500-year-old'、{n}: '500'、{adj}: 'German'、{when}: 'around 1550'
+TITLES = [   # (必要な値, 型の名前[stats で型ごとに比べる], 題名)
+    ("years", "age", "Can you guess this {years} object? 🔍"),
+    ("years adj", "age_culture", "What is this {years} {adj} object? 🔍"),
+    ("years", "over_age", "This is over {n} years old. Can you tell what it is? 🔍"),
+    ("when", "made_when", "Made {when}. Can you guess what it is? 🔍"),
+    ("", "zoom", "Can you tell what this is before it zooms out? 🔍"),
+    ("years", "treasure", "Zoom out to reveal: what is this {years} treasure? 🔍"),
+    ("country", "country", "A mystery object from {country}. What is it? 🔍"),
+    ("years", "look_closer", "Look closer... this object is over {n} years old 🔍"),
+    ("", "museum", "Too close to tell? Guess this museum object 🔍"),
+    ("when", "someone_made", "Someone made this {when}. What is it? 🔍"),
+    ("years adj", "mystery_culture", "Guess this {years} {adj} mystery object 🔍"),
+    ("", "five_seconds", "Can you name this object in 5 seconds? 🔍"),
+]
+COUNTRY = {"German": "Germany", "Italian": "Italy", "French": "France", "British": "Britain", "English": "England",
+           "Spanish": "Spain", "Dutch": "the Netherlands", "Flemish": "Flanders", "Japanese": "Japan",
+           "Chinese": "China", "Indian": "India", "Iranian": "Iran", "Turkish": "Turkey", "Austrian": "Austria",
+           "Swiss": "Switzerland", "American": "America", "Russian": "Russia", "Korean": "Korea", "Persian": "Persia",
+           "Netherlandish": "the Netherlands", "Swedish": "Sweden", "Danish": "Denmark", "Polish": "Poland"}
+
+
+def video_title(o, number, used=(), last_style=None):
+    """(YouTube の題名, 型の名前)。答えは書かない。番号で型を順に回し(毎回ちがう型)、
+    作品のデータで埋められない型と、過去と同じ題名は飛ばす。型は upload_history.json の title_style に残る。"""
     _, age = when(o)
     adj = adjective(o)
-    if age and age >= 100:
-        years = f"{round_age(age):,}-year-old"
-        if adj and number % 2 == 0:
-            return f"What is this {years} {adj} object? 🔍", "age_culture"
-        return f"Can you guess this {years} object? 🔍", "age"
-    if adj:
-        return f"Can you guess this {adj} object? 🔍", "culture"
+    old = age and age >= 100
+    vals = {"years": f"{round_age(age):,}-year-old" if old else None, "n": f"{round_age(age):,}" if old else None,
+            "adj": adj, "country": COUNTRY.get(adj or ""), "when": year_phrase(o)}
+    used = {re.sub(r"^\[\d+\]\s*", "", t) for t in used}
+    for k in range(len(TITLES)):
+        need, style, tpl = TITLES[(number - 1 + k) % len(TITLES)]
+        if any(not vals.get(w) for w in need.split()):
+            continue
+        t = tpl.format(**{k2: v for k2, v in vals.items() if v})
+        if t not in used and style != last_style:      # 前の回と同じ型は使わない
+            return t, style
     return "Can you tell what this is? 🔍", "plain"
 
 

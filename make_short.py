@@ -114,6 +114,8 @@ def main():
     o, img, s = found
     text = describe.texts(o, cat)
     seconds = video.render(img, s, text, M.make_tts(args.tts), out)
+    title, title_style = describe.video_title(o, number, [h.get("title", "") for h in history],
+                                              history[-1].get("title_style") if history else None)
     meta = {
         "number": number,
         "key": f"met:{o['objectID']}",
@@ -122,8 +124,8 @@ def main():
         "object_title": text["title"],
         "object_url": o.get("objectURL"),
         "date": now.date().isoformat(),
-        "title": f"[{number}] {describe.video_title(o, number)[0]}",
-        "title_style": describe.video_title(o, number)[1],
+        "title": f"[{number}] {title}",
+        "title_style": title_style,
         "description": description(o, text),
         "tags": ["what is it", "guess the object", "close up", "zoom out", "museum", "quiz",
                  K.CATEGORIES[cat][4]],
