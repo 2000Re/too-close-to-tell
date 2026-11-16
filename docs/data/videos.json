@@ -50,5 +50,18 @@
   "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP242801.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/506104",
   "category": "guitar"
+ },
+ {
+  "number": 5,
+  "slug": "5-shoes",
+  "video_id": "PZptOnt5-W8",
+  "uploaded_at": "2026-11-16T07:43:36+00:00",
+  "answer": "A shoe",
+  "title": "Shoes",
+  "info": "A French shoe from around 1700. That's over 320 years old!",
+  "meta": "French, 1690–1700 · silk, leather",
+  "image": "https://images.metmuseum.org/CRDImages/ci/web-large/DT2630.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/79101",
+  "category": "shoes"
  }
 ]
