@@ -43,7 +43,21 @@ CATEGORIES = {
     "spur": (["spur"], ["spur"], [], "a riding spur", "riding spur"),
     "chess": (["chess piece", "chessman"], ["chess"], ["board", "table", "print"], "a chess piece", "chess piece"),
     "basket": (["basket"], ["basket"], [], "a basket", "basket"),
+    # 身近な物(2026-11-17 追加)
+    "spoon": (["spoon"], ["spoon"], ["print", "drawing", "design"], "a spoon", "spoon"),
+    "teacup": (["teacup", "cup and saucer"], ["cup"], ["stirrup", "drinking horn", "print", "nautilus"], "a teacup", "teacup"),
+    "scissors": (["scissors"], ["scissors"], ["case", "sheath", "print", "drawing", "chatelaine"], "a pair of scissors",
+                 "pair of scissors"),
+    "candlestick": (["candlestick"], ["candlestick"], ["print", "drawing", "design"], "a candlestick", "candlestick"),
+    "hat": (["hat"], ["hat"], ["hatpin", "print", "photograph", "drawing", "pin", "box"], "a hat", "hat"),
+    "bottle": (["bottle"], ["bottle"], ["print", "drawing", "snuff"], "a bottle", "bottle"),
 }
+
+# 今の暮らしで見かける身近な物。2026-11-17 の stats.md で、靴(422)は兜・盾・角笛(66〜108)の3倍以上見られていたので、
+# 身近な物を中心に出す(EVERYDAY_SHARE の割合)。それ以外(武具・古い楽器・天文の道具など)もときどき出す
+EVERYDAY = {"shoes", "teapot", "watch", "clock", "guitar", "violin", "drum", "trumpet", "fan", "lock", "chess", "basket",
+            "globe", "spoon", "teacup", "scissors", "candlestick", "hat", "bottle"}
+EVERYDAY_SHARE = 0.85
 
 BANNED = ("bone", "human", "skull", "hair", "mask", "reliquary", "ritual", "ceremonial", "shrine", "sacred", "funerary",
           "mummy", "coffin", "ivory")     # 象牙も避ける(素材として扱いに配慮が要る)
@@ -64,6 +78,11 @@ def ok_object(o, cat):
 
 
 def next_category(history, rng):
+    """直近 RECENT 本に出ていないカテゴリから選ぶ。EVERYDAY_SHARE の割合で身近な物(EVERYDAY)から選ぶ。"""
     recent = [h.get("category") for h in history[-RECENT:]]
     cats = [c for c in CATEGORIES if c not in recent] or list(CATEGORIES)
-    return rng.choice(cats)
+    every = [c for c in cats if c in EVERYDAY]
+    other = [c for c in cats if c not in EVERYDAY]
+    if every and (not other or rng.random() < EVERYDAY_SHARE):
+        return rng.choice(every)
+    return rng.choice(other)
