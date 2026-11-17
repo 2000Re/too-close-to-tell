@@ -76,5 +76,18 @@
   "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP-12763-001.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/504629",
   "category": "horn"
+ },
+ {
+  "number": 7,
+  "slug": "7-himalayan-lute-sgra-snyan",
+  "video_id": "sKDZeGRUp3Q",
+  "uploaded_at": "2026-11-17T07:43:16+00:00",
+  "answer": "A lute",
+  "title": "Himalayan Lute (Sgra-Snyan)",
+  "info": "A Himalayan lute from 19. That's over 2000 years old!",
+  "meta": "Himalayan, 19th Century · Wood",
+  "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP-24962-004.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/882435",
+  "category": "lute"
  }
 ]
