@@ -89,5 +89,18 @@
   "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP-24962-004.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/882435",
   "category": "lute"
+ },
+ {
+  "number": 8,
+  "slug": "8-circular-trumpet",
+  "video_id": "vakca9H8m80",
+  "uploaded_at": "2026-11-18T07:43:03+00:00",
+  "answer": "A trumpet",
+  "title": "Circular Trumpet",
+  "info": "A French trumpet from 1830. That's over 190 years old!",
+  "meta": "French, ca. 1830 · Brass",
+  "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP-19644-003.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/824266",
+  "category": "trumpet"
  }
 ]
