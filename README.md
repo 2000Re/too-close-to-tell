@@ -2,7 +2,8 @@
 
 YouTube チャンネル **Too Close to Tell**([@too-close-to-tell](https://www.youtube.com/@too-close-to-tell))の Shorts を毎日自動で作って投稿する。
 
-美術館の収蔵品の写真を、何か分からないほどのどアップから映し、少しずつ引いて、3・2・1 のあと一気に全体まで引いて正体を見せる(選択肢なし。答えだけを出す)。
+美術館の収蔵品の写真を、何か分からないほどのどアップから映し、少しずつ引いて、3・2・1 のあと一気に全体まで引いて正体を見せる 3択クイズ(#10 から。#9 までは選択肢なしで答えだけを出していた)。
+外れの選択肢は、ほかのカテゴリの答えから選ぶ(`catalog.choices_for`。どアップで見分けにくい仲間同士(弦楽器、武具、時計など、`GROUPS`)は同じ回に並べない。AI は使わない)。
 
 - 写真と作品の情報: メトロポリタン美術館 Collection API(キー不要)。`isPublicDomain` が true(CC0)の作品だけを使う
 - **AI は使わない。** 答えは `catalog.py` の表、説明は美術館のデータを型にはめて作る(`describe.py`)
@@ -10,11 +11,11 @@ YouTube チャンネル **Too Close to Tell**([@too-close-to-tell](https://www.y
 
 ## 流れ(1本 約16〜19秒)
 
-1. どアップ。「WHAT IS IT? / Guess before it zooms out!」「Can you tell yet?」。少しずつ引く(最初の幅の 2.3 倍まで)
-2. 「Last chance to guess!」→ 3・2・1
+1. どアップ。「WHAT IS IT? / Guess before it zooms out!」と3択(例「A trumpet, a helmet, or a teapot?」)。少しずつ引く(最初の幅の 2.3 倍まで)
+2. 「Lock in your answer!」→ 3・2・1
 3. 一気に引いて、答え(金色の帯)「It's a violin!」
 4. 説明「An Italian violin by Antonio Stradivari, from 1693. That's over 330 years old!」と、作品名・作者・年・素材
-5. 「What did you guess? Tell me in the comments!」
+5. 「Did you get it right? Tell me in the comments!」
 
 ## ファイル
 

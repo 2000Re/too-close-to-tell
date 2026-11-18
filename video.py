@@ -1,9 +1,9 @@
 """どアップから始めて、答えで一気に引く動画(1080x1920・30fps)。
 
-  0秒〜      どアップ。「WHAT IS IT? / Guess before it zooms out!」少しずつ引く(ヒントが増える)
+  0秒〜      どアップ。「WHAT IS IT? / Guess before it zooms out!」と3択。少しずつ引く(ヒントが増える)
   残り3秒    3・2・1
-  答え       一気に全体まで引いて、答え(金色の帯)と作品の情報
-  最後       「What did you guess? Tell me in the comments!」
+  答え       一気に全体まで引いて、正解の選択肢が光る。作品の情報
+  最後       「Did you get it right? Tell me in the comments!」
 """
 import math
 
@@ -44,11 +44,11 @@ def render(img, spot, text, tts, out):
 
     lines = {
         "q": "What is it?",
-        "c": "Can you tell yet?",
-        "lock": "Last chance to guess!",
+        "c": text["say_choices"],
+        "lock": "Lock in your answer!",
         "ans": text["say_answer"],
         "info": text["say_info"],
-        "outro": "What did you guess? Tell me in the comments!",
+        "outro": "Did you get it right? Tell me in the comments!",
     }
     clips, dur = M.say_all(tts, lines)
     at = {"q": 0.1}
@@ -88,7 +88,8 @@ def render(img, spot, text, tts, out):
 
     kicker = M.text_layer(["WHAT IS IT?"], M.font(M.SANS_BOLD, 88), M.WHITE, shadow=230)
     sub = M.text_layer(["Guess before it zooms out!"], M.font(M.SANS_BOLD, 40), M.GOLD + (255,), shadow=220)
-    answer = M.pill(text["answer"], (220, 220, 230), w=860, hgt=110, size=56, glow=True)
+    pills = [M.pill(c, (220, 220, 230), w=320, size=34) for c in text["choices"]]
+    right = M.pill(text["choices"][text["correct"]], (220, 220, 230), w=320, size=34, glow=True)
     f_count = M.font(M.SANS_BOLD, 150)
     t_lines, t_font = M.fit_lines(text["title"], M.SANS_BOLD, W - 160, [56, 50, 44, 40], max_lines=2)
     title = M.text_layer(t_lines, t_font, M.GOLD + (255,), shadow=230, spacing=1.1)
@@ -96,7 +97,7 @@ def render(img, spot, text, tts, out):
     meta = M.text_layer(m_lines, m_font, (235, 235, 240, 255), shadow=220)
     credit = M.text_layer([CREDIT], M.font(M.SANS, 24), (190, 195, 210, 235), shadow=180)
     info_h = title.height + meta.height + 10
-    info_y = 1665                                  # 答えの帯の下
+    info_y = 1665                                  # 選択肢の下
 
     def frame(t):
         im = view(t)
@@ -109,11 +110,17 @@ def render(img, spot, text, tts, out):
             n = math.ceil(reveal - t)
             ph = (reveal - t) - (n - 1)
             a = M.ease(ph / 0.25) * M.ease((1 - ph + 0.6) / 0.6)
-            ImageDraw.Draw(im).text((W / 2, 1600), str(n), font=f_count, fill=(255, 255, 255, int(255 * a)),
+            ImageDraw.Draw(im).text((W / 2, 1390), str(n), font=f_count, fill=(255, 255, 255, int(255 * a)),
                                     anchor="mm", stroke_width=8, stroke_fill=(10, 12, 18, int(255 * a)))
         rr = M.ease((t - at["ans"]) / 0.3)
-        if rr > 0:
-            im.alpha_composite(M.with_alpha(answer, rr), ((W - answer.width) // 2, 1505))
+        for k, pl in enumerate(pills):                         # 3択(順に出す)。答えで正解が光り、ほかは暗くなる
+            px = 20 + k * 345
+            a_in = M.ease((t - at["c"] - 0.35 * k) / 0.25)
+            if k == text["correct"] and rr > 0:
+                im.alpha_composite(M.with_alpha(pl, 1 - rr), (px, 1505))
+                im.alpha_composite(M.with_alpha(right, rr), (px, 1505))
+            elif a_in > 0:
+                im.alpha_composite(M.with_alpha(pl, a_in * (1 - 0.7 * rr)), (px, 1505))
         M.timer_bar(im, t, 0.0, reveal, y=1690)
         ri = M.ease((t - at["info"]) / 0.4)
         if ri > 0:

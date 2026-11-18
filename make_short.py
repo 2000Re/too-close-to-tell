@@ -58,6 +58,8 @@ def description(o, text):
     return "\n".join([
         "Can you tell what it is before it zooms out? 🔍",
         "",
+        "Choices: " + " / ".join(text["choices"]),
+        "",
         "Answer (spoiler!) ↓",
         "",
         "",
@@ -113,6 +115,9 @@ def main():
 
     o, img, s = found
     text = describe.texts(o, cat)
+    text["choices"], text["correct"] = K.choices_for(cat, rng)
+    a, b, c3 = [x[:1].lower() + x[1:] if x.lower().startswith(("a ", "an ")) else x for x in text["choices"]]
+    text["say_choices"] = f"{text['choices'][0]}, {b}, or {c3}?"
     seconds = video.render(img, s, text, M.make_tts(args.tts), out)
     title, title_style = describe.video_title(o, number, [h.get("title", "") for h in history],
                                               history[-1].get("title_style") if history else None)

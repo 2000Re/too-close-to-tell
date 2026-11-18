@@ -64,6 +64,38 @@ BANNED = ("bone", "human", "skull", "hair", "mask", "reliquary", "ritual", "cere
 
 RECENT = 8      # 直近この本数に出たカテゴリは選ばない
 
+# 3択の外れは、ほかのカテゴリの答えから選ぶ(AI は使わない)。どアップで見分けがつかない仲間同士は、同じ回に並べない
+GROUPS = [
+    {"violin", "guitar", "lute", "mandolin"},
+    {"trumpet", "horn"},
+    {"helmet", "armor", "mail", "shield", "gauntlet"},
+    {"watch", "clock", "sundial", "astrolabe", "globe"},
+    {"saddle", "stirrup", "spur"},
+    {"teapot", "teacup", "bottle", "nautilus", "spoon"},
+    {"snuffbox", "lock"},
+    {"shoes", "hat"},
+]
+
+
+def group_of(cat):
+    return next((g for g in GROUPS if cat in g), {cat})
+
+
+def choices_for(cat, rng):
+    """(選択肢3つ, 正解の位置)。外れは別の仲間のカテゴリから2つ。身近な物(EVERYDAY)を優先する。"""
+    taken = set(group_of(cat))
+    wrong = []
+    for _ in range(2):
+        pool = [c for c in CATEGORIES if c not in taken]
+        every = [c for c in pool if c in EVERYDAY]
+        pick = rng.choice(every if every and rng.random() < 0.8 else pool)
+        wrong.append(pick)
+        taken |= group_of(pick)
+    cats = [cat] + wrong
+    rng.shuffle(cats)
+    labels = [CATEGORIES[c][3][:1].upper() + CATEGORIES[c][3][1:] for c in cats]
+    return labels, cats.index(cat)
+
 
 def ok_object(o, cat):
     """カテゴリの作品として使ってよいか(写真の良し悪しは spot.py で見る)。"""
