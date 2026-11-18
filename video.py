@@ -32,6 +32,21 @@ def make_canvas(img):
     return canvas, pad_x, pad_y
 
 
+# 毎回ちがう言い回し(繰り返しの多い動画に見えないように)。番号で回すので、同じ番号なら作り直しても同じ
+LINES = {
+    "q": ["What is it?", "Can you tell what this is?", "What are we looking at?", "Any idea what this is?",
+          "What could this be?"],
+    "lock": ["Lock in your answer!", "Make your pick!", "Got a guess?", "Choose one!", "Final answer?"],
+    "outro": ["Did you get it right? Tell me in the comments!", "How fast did you guess?", "Did it fool you?",
+              "Were you right? Comment below!", "What did you think it was?"],
+}
+
+
+def vary(number, key):
+    opts = LINES[key]
+    return opts[(number + sum(map(ord, key))) % len(opts)]
+
+
 def render(img, spot, text, tts, out):
     """img: 写真、spot: spot.choose() の結果、text: describe.texts() の結果。秒数を返す。"""
     canvas, pad_x, pad_y = make_canvas(img)
@@ -43,12 +58,12 @@ def render(img, spot, text, tts, out):
     end_w = min(max((x1 - x0) * 1.3, (y1 - y0) * 1.85 * W / H), cw, ch * W / H)
 
     lines = {
-        "q": "What is it?",
+        "q": vary(text.get("number", 1), "q"),
         "c": text["say_choices"],
-        "lock": "Lock in your answer!",
+        "lock": vary(text.get("number", 1), "lock"),
         "ans": text["say_answer"],
         "info": text["say_info"],
-        "outro": "Did you get it right? Tell me in the comments!",
+        "outro": vary(text.get("number", 1), "outro"),
     }
     clips, dur = M.say_all(tts, lines)
     at = {"q": 0.1}

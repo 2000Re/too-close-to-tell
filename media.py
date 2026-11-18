@@ -112,7 +112,7 @@ def band(img, y0, y1, a, x0=50, x1=W - 50):
 # ---------------------------------------------------------------- 読み上げ
 
 TTS_URL = "https://texttospeech.googleapis.com/v1/text:synthesize"
-DEFAULT_VOICE = "en-US-Chirp3-HD-Charon"
+DEFAULT_VOICE = "en-US-Chirp3-HD-Aoede"      # チャンネルごとに声を変える(Painted When? は Charon)
 DEFAULT_RATE = 1.1
 
 

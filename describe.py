@@ -129,6 +129,20 @@ def video_title(o, number, used=(), last_style=None):
     return "Can you tell what this is? 🔍", "plain"
 
 
+def materials(o):
+    """'Steel, gold' → 'steel and gold'。素材の書き方が長い・複雑なものは None(技法の説明などは読まない)。"""
+    m = clean(o.get("medium")).split(";")[0]
+    if not m or re.search(r"[\d()\[\]/]", m):
+        return None
+    parts = [p.strip().lower() for p in re.split(r",| and ", m) if p.strip()]
+    if not parts or len(parts) > 4 or any(len(p.split()) > 3 for p in parts):
+        return None
+    return parts[0] if len(parts) == 1 else ", ".join(parts[:-1]) + " and " + parts[-1]
+
+
+MATERIAL_LINES = ["Made of {m}.", "It's made of {m}."]
+
+
 def texts(o, cat):
     _, _, _, answer, noun = K.CATEGORIES[cat]
     adj, who = adjective(o), maker(o)
@@ -144,6 +158,10 @@ def texts(o, cat):
     sentence += "."
     if age and age >= 100:
         sentence += f" That's over {age // 10 * 10} years old!"
+    mat = materials(o)
+    if mat:
+        tpl = MATERIAL_LINES[(o.get("objectID") or 0) % len(MATERIAL_LINES)]
+        sentence += " " + tpl.format(m=mat)
     meta_bits = [b for b in (who or clean(o.get("culture")) or place(o), clean(o.get("objectDate"))) if b]
     meta = ", ".join(meta_bits)
     medium = clean(o.get("medium"))
