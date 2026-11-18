@@ -28,7 +28,10 @@ SITE = "https://2000re.github.io/too-close-to-tell"
 def candidates(cat, rng):
     ids = []
     for q in K.CATEGORIES[cat][0]:
-        ids += met.search(q)
+        try:
+            ids += met.search(q)
+        except Exception as e:
+            print(f"  検索できません({q}): {e}")
     ids = list(dict.fromkeys(ids))
     rng.shuffle(ids)
     return ids
@@ -39,7 +42,11 @@ def find(cat, used, rng, log):
     for i in candidates(cat, rng)[:MAX_LOOKUPS]:
         if f"met:{i}" in used:
             continue
-        o = met.obj(i)
+        try:
+            o = met.obj(i)
+        except Exception as e:          # Met は一時的に 403 を返し続けることがある。1点取れなくても次の候補へ
+            log(f"  {i}: 作品の情報を取れません ({e})")
+            continue
         if not K.ok_object(o, cat):
             continue
         try:
