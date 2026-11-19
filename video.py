@@ -37,8 +37,8 @@ LINES = {
     "q": ["What is it?", "Can you tell what this is?", "What are we looking at?", "Any idea what this is?",
           "What could this be?"],
     "lock": ["Lock in your answer!", "Make your pick!", "Got a guess?", "Choose one!", "Final answer?"],
-    "outro": ["Did you get it right? Tell me in the comments!", "How fast did you guess?", "Did it fool you?",
-              "Were you right? Comment below!", "What did you think it was?"],
+    "outro": ["Did you get it?", "How fast did you guess?", "Did it fool you?", "Were you right?",
+              "Comment your guess!"],
 }
 
 
@@ -67,14 +67,15 @@ def render(img, spot, text, tts, out):
     }
     clips, dur = M.say_all(tts, lines)
     at = {"q": 0.1}
-    at["c"] = at["q"] + dur["q"] + 0.3
-    at["lock"] = at["c"] + dur["c"] + 0.3
+    # 間は短めに(1本 18 秒前後。長いと最後まで見てもらいにくい)
+    at["c"] = at["q"] + dur["q"] + 0.15
+    at["lock"] = at["c"] + dur["c"] + 0.15
     reveal = at["lock"] + dur["lock"] + THINK
-    pull = (reveal, reveal + 1.6)
+    pull = (reveal, reveal + 1.3)
     at["ans"] = pull[1] - 0.2
-    at["info"] = at["ans"] + dur["ans"] + 0.3
-    at["outro"] = at["info"] + dur["info"] + 0.5
-    end = at["outro"] + dur["outro"] + 1.0
+    at["info"] = at["ans"] + dur["ans"] + 0.2
+    at["outro"] = at["info"] + dur["info"] + 0.3
+    end = at["outro"] + dur["outro"] + 0.6
     effects = [(M.sfx_whoosh(), 0.0), *M.countdown_ticks(reveal), (M.sfx_whoosh(), pull[0]), (M.sfx_ding(), at["ans"])]
     wav = out / "audio.wav"
     M.write_audio(wav, end, clips, at, effects)

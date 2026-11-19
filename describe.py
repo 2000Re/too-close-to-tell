@@ -156,10 +156,11 @@ def texts(o, cat):
     if phrase:
         sentence += f", {phrase}" if who or not adj else f" {phrase}"
     sentence += "."
+    # 一言は1つだけ(動画を短く保つ): 100年以上前なら年数、そうでなければ素材
+    mat = materials(o)
     if age and age >= 100:
         sentence += f" That's over {age // 10 * 10} years old!"
-    mat = materials(o)
-    if mat:
+    elif mat:
         tpl = MATERIAL_LINES[(o.get("objectID") or 0) % len(MATERIAL_LINES)]
         sentence += " " + tpl.format(m=mat)
     meta_bits = [b for b in (who or clean(o.get("culture")) or place(o), clean(o.get("objectDate"))) if b]
