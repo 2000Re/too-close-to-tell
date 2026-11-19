@@ -15,11 +15,11 @@
    "views": 404
   },
   "latest": {
-   "age_h": 86,
-   "at": "2026-11-18T01:07:54+00:00",
+   "age_h": 110,
+   "at": "2026-11-19T00:39:05+00:00",
    "comments": 0,
    "likes": 1,
-   "views": 404
+   "views": 391
   },
   "video_id": "EBYsbiJicSI"
  },
@@ -39,8 +39,8 @@
    "views": 68
   },
   "latest": {
-   "age_h": 84,
-   "at": "2026-11-18T01:07:54+00:00",
+   "age_h": 108,
+   "at": "2026-11-19T00:39:05+00:00",
    "comments": 0,
    "likes": 1,
    "views": 68
@@ -55,9 +55,16 @@
    "likes": 2,
    "views": 108
   },
+  "day3": {
+   "age_h": 89,
+   "at": "2026-11-19T00:39:05+00:00",
+   "comments": 0,
+   "likes": 2,
+   "views": 112
+  },
   "latest": {
-   "age_h": 65,
-   "at": "2026-11-18T01:07:54+00:00",
+   "age_h": 89,
+   "at": "2026-11-19T00:39:05+00:00",
    "comments": 0,
    "likes": 2,
    "views": 112
@@ -72,9 +79,16 @@
    "likes": 2,
    "views": 145
   },
+  "day3": {
+   "age_h": 84,
+   "at": "2026-11-19T00:39:05+00:00",
+   "comments": 0,
+   "likes": 2,
+   "views": 145
+  },
   "latest": {
-   "age_h": 60,
-   "at": "2026-11-18T01:07:54+00:00",
+   "age_h": 84,
+   "at": "2026-11-19T00:39:05+00:00",
    "comments": 0,
    "likes": 2,
    "views": 145
@@ -90,8 +104,8 @@
    "views": 434
   },
   "latest": {
-   "age_h": 41,
-   "at": "2026-11-18T01:07:54+00:00",
+   "age_h": 65,
+   "at": "2026-11-19T00:39:05+00:00",
    "comments": 0,
    "likes": 7,
    "views": 434
@@ -107,22 +121,49 @@
    "views": 110
   },
   "latest": {
-   "age_h": 36,
-   "at": "2026-11-18T01:07:54+00:00",
+   "age_h": 60,
+   "at": "2026-11-19T00:39:05+00:00",
    "comments": 0,
    "likes": 1,
-   "views": 110
+   "views": 111
   },
   "video_id": "mtTgA7PAfTI"
  },
  "7": {
-  "latest": {
-   "age_h": 17,
-   "at": "2026-11-18T01:07:54+00:00",
+  "day1": {
+   "age_h": 41,
+   "at": "2026-11-19T00:39:05+00:00",
    "comments": 0,
    "likes": 2,
-   "views": 244
+   "views": 254
+  },
+  "latest": {
+   "age_h": 41,
+   "at": "2026-11-19T00:39:05+00:00",
+   "comments": 0,
+   "likes": 2,
+   "views": 254
   },
   "video_id": "sKDZeGRUp3Q"
+ },
+ "8": {
+  "latest": {
+   "age_h": 17,
+   "at": "2026-11-19T00:39:05+00:00",
+   "comments": 0,
+   "likes": 1,
+   "views": 54
+  },
+  "video_id": "vakca9H8m80"
+ },
+ "9": {
+  "latest": {
+   "age_h": 14,
+   "at": "2026-11-19T00:39:05+00:00",
+   "comments": 0,
+   "likes": 1,
+   "views": 153
+  },
+  "video_id": "shYQUBCQ8Z8"
  }
 }
