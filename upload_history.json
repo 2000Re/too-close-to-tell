@@ -150,5 +150,19 @@
     "video_id": "28QQx70N1cA",
     "privacy": "public",
     "uploaded_at": "2026-11-19T10:43:31+00:00"
+  },
+  {
+    "number": 12,
+    "key": "met:452038",
+    "category": "chess",
+    "object_id": 452038,
+    "object_title": "Chess Piece, Knight",
+    "date": "2026-11-20",
+    "title": "[12] Can you guess this 1,000-year-old object? 🔍",
+    "answer": "A chess piece",
+    "title_style": "age",
+    "video_id": "VN7L4eWd5H4",
+    "privacy": "public",
+    "uploaded_at": "2026-11-20T07:45:28+00:00"
   }
 ]

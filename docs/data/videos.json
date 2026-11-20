@@ -141,5 +141,18 @@
   "image": "https://images.metmuseum.org/CRDImages/es/web-large/DP-12792-003.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/199436",
   "category": "teapot"
+ },
+ {
+  "number": 12,
+  "slug": "12-chess-piece-knight",
+  "video_id": "VN7L4eWd5H4",
+  "uploaded_at": "2026-11-20T07:45:28+00:00",
+  "answer": "A chess piece",
+  "title": "Chess Piece, Knight",
+  "info": "A chess piece from Iran. That's over 1020 years old!",
+  "meta": "Iran, 8th–10th century · Jet; carved",
+  "image": "https://images.metmuseum.org/CRDImages/is/web-large/DP303335.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/452038",
+  "category": "chess"
  }
 ]
