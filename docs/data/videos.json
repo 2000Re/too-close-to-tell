@@ -154,5 +154,18 @@
   "image": "https://images.metmuseum.org/CRDImages/is/web-large/DP303335.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/452038",
   "category": "chess"
+ },
+ {
+  "number": 13,
+  "slug": "13-basket",
+  "video_id": "tQmPabylZ14",
+  "uploaded_at": "2026-11-20T10:43:25+00:00",
+  "answer": "A basket",
+  "title": "Basket",
+  "info": "A basket from United States, from around 1900. That's over 120 years old!",
+  "meta": "Tlingit, Native American, ca. 1900 · Spruce root and dyed and undyed beach or rye grass",
+  "image": "https://images.metmuseum.org/CRDImages/ad/web-large/DP-15102-034.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/751492",
+  "category": "basket"
  }
 ]
