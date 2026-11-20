@@ -1,58 +1,64 @@
 # 再生数のまとめ
 
-`stats.py` が毎日作り直す(最終更新 2026-11-19 09:39 JST)。比べるのは投稿から約3日目の再生数(古い動画ほど多くなるのをそろえるため)。「最新の平均」は投稿からの日数がそろっていないので参考。
+`stats.py` が毎日作り直す(最終更新 2026-11-20 09:46 JST)。比べるのは投稿から約3日目の再生数(古い動画ほど多くなるのをそろえるため)。「最新の平均」は投稿からの日数がそろっていないので参考。
 
 ## 全体
 
 | 値 | 3日目の本数 | 平均 | 中央値 | 最新の本数 | 最新の平均(参考) |
 |---|---:|---:|---:|---:|---:|
-| すべて | 4 | 182 | 128 | 9 | 191 |
+| すべて | 6 | 212 | 128 | 11 | 181 |
 
 ## title_style
 
 | 値 | 3日目の本数 | 平均 | 中央値 | 最新の本数 | 最新の平均(参考) |
 |---|---:|---:|---:|---:|---:|
+| zoom | 1 | 433 | 433 | 1 | 433 |
 | (なし) | 2 | 236 | 236 | 2 | 230 |
-| made_when | 1 | 145 | 145 | 1 | 145 |
+| made_when | 1 | 145 | 145 | 1 | 144 |
 | age | 1 | 112 | 112 | 1 | 112 |
-| zoom | 0 |  |  | 1 | 434 |
-| treasure | 0 |  |  | 1 | 111 |
+| treasure | 1 | 110 | 110 | 1 | 110 |
 | look_closer | 0 |  |  | 1 | 254 |
-| museum | 0 |  |  | 1 | 54 |
-| someone_made | 0 |  |  | 1 | 153 |
+| museum | 0 |  |  | 1 | 64 |
+| someone_made | 0 |  |  | 1 | 154 |
+| five_seconds | 0 |  |  | 1 | 172 |
+| over_age | 0 |  |  | 1 | 90 |
 
 ## category
 
 | 値 | 3日目の本数 | 平均 | 中央値 | 最新の本数 | 最新の平均(参考) |
 |---|---:|---:|---:|---:|---:|
+| shoes | 1 | 433 | 433 | 1 | 433 |
 | snuffbox | 1 | 404 | 404 | 1 | 391 |
-| guitar | 1 | 145 | 145 | 1 | 145 |
+| guitar | 1 | 145 | 145 | 1 | 144 |
 | shield | 1 | 112 | 112 | 1 | 112 |
-| helmet | 1 | 68 | 68 | 1 | 68 |
-| shoes | 0 |  |  | 1 | 434 |
-| horn | 0 |  |  | 1 | 111 |
+| horn | 1 | 110 | 110 | 1 | 110 |
+| helmet | 1 | 68 | 68 | 1 | 69 |
 | lute | 0 |  |  | 1 | 254 |
-| trumpet | 0 |  |  | 1 | 54 |
-| violin | 0 |  |  | 1 | 153 |
+| trumpet | 0 |  |  | 1 | 64 |
+| violin | 0 |  |  | 1 | 154 |
+| watch | 0 |  |  | 1 | 172 |
+| teapot | 0 |  |  | 1 | 90 |
 
 ## 投稿の時間帯
 
 | 値 | 3日目の本数 | 平均 | 中央値 | 最新の本数 | 最新の平均(参考) |
 |---|---:|---:|---:|---:|---:|
-| 19時台 | 1 | 404 | 404 | 2 | 272 |
-| 16時台 | 1 | 112 | 112 | 4 | 214 |
-| 21時台 | 2 | 106 | 106 | 3 | 108 |
+| 19時台 | 1 | 404 | 404 | 3 | 212 |
+| 16時台 | 2 | 272 | 272 | 5 | 207 |
+| 21時台 | 3 | 108 | 110 | 3 | 108 |
 
 ## 動画ごと(新しい順)
 
 | # | 答え | 投稿(JST) | 1日目 | 3日目 | 7日目 | 最新 | 高評価 | コメント |
 |---:|---|---|---:|---:|---:|---:|---:|---:|
-| [9](https://youtube.com/shorts/shYQUBCQ8Z8) | A violin | 11-18 19:49 |  |  |  | 153 | 1 | 0 |
-| [8](https://youtube.com/shorts/vakca9H8m80) | A trumpet | 11-18 16:43 |  |  |  | 54 | 1 | 0 |
+| [11](https://youtube.com/shorts/28QQx70N1cA) | A teapot | 11-19 19:43 |  |  |  | 90 | 1 | 0 |
+| [10](https://youtube.com/shorts/1bJh4SgFTPI) | A pocket watch | 11-19 16:46 |  |  |  | 172 | 1 | 0 |
+| [9](https://youtube.com/shorts/shYQUBCQ8Z8) | A violin | 11-18 19:49 | 154 |  |  | 154 | 1 | 0 |
+| [8](https://youtube.com/shorts/vakca9H8m80) | A trumpet | 11-18 16:43 | 64 |  |  | 64 | 1 | 0 |
 | [7](https://youtube.com/shorts/sKDZeGRUp3Q) | A lute | 11-17 16:43 | 254 |  |  | 254 | 2 | 0 |
-| [6](https://youtube.com/shorts/mtTgA7PAfTI) | A horn | 11-16 21:43 | 110 |  |  | 111 | 1 | 0 |
-| [5](https://youtube.com/shorts/PZptOnt5-W8) | A shoe | 11-16 16:43 | 434 |  |  | 434 | 7 | 0 |
-| [4](https://youtube.com/shorts/2DptNRUNwTA) | A guitar | 11-15 21:43 | 145 | 145 |  | 145 | 2 | 0 |
+| [6](https://youtube.com/shorts/mtTgA7PAfTI) | A horn | 11-16 21:43 | 110 | 110 |  | 110 | 1 | 0 |
+| [5](https://youtube.com/shorts/PZptOnt5-W8) | A shoe | 11-16 16:43 | 434 | 433 |  | 433 | 7 | 0 |
+| [4](https://youtube.com/shorts/2DptNRUNwTA) | A guitar | 11-15 21:43 | 145 | 145 |  | 144 | 2 | 0 |
 | [3](https://youtube.com/shorts/FZyj7clM7sM) | A shield | 11-15 16:42 | 108 | 112 |  | 112 | 2 | 0 |
-| [2](https://youtube.com/shorts/1oGZqtxUjmo) | A helmet | 11-14 21:43 | 65 | 68 |  | 68 | 1 | 0 |
+| [2](https://youtube.com/shorts/1oGZqtxUjmo) | A helmet | 11-14 21:43 | 65 | 68 |  | 69 | 1 | 0 |
 | [1](https://youtube.com/shorts/EBYsbiJicSI) | A snuffbox | 11-14 19:40 | 403 | 404 |  | 391 | 1 | 0 |
