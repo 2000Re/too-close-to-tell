@@ -102,3 +102,13 @@ Wait, That Big? と同じ手順(チャンネルは同じ Google アカウント�
 Shorts は最後まで見られると頭からくり返される。くり返し再生につなげやすいよう、最後の読み上げのあとの間を短くした
 (Painted When?・Guess From Space は、最後に冒頭と同じ拡大した場面へ戻る)。どちらの終わり方かは
 `upload_history.json` の `ending` に残り、`stats.md` で比べられる。
+
+## 登録につなげる工夫(2026-11-21〜)
+
+再生数は伸びているのに、高評価・コメント・登録がほとんどなかったので、次を入れた。
+
+- 最後の一言を、答えをコメントしたくなる問いと、毎日続くシリーズだと伝える一言にした(`video.LINES["outro"]`。
+  例: 「What did you guess? Follow for a new mystery object every day!」)
+- 説明欄に「What did you guess? Tell me in the comments!」「Follow for a new mystery object every day.」と、
+  姉妹チャンネル(Wait, That Big?・Painted When?・Guess From Space)へのリンク(`make_short.SISTERS`)
+- ほかの3チャンネルの説明欄からも、このチャンネルへリンクする

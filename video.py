@@ -37,8 +37,12 @@ LINES = {
     "q": ["What is it?", "Can you tell what this is?", "What are we looking at?", "Any idea what this is?",
           "What could this be?"],
     "lock": ["Lock in your answer!", "Make your pick!", "Got a guess?", "Choose one!", "Final answer?"],
-    "outro": ["Did you get it?", "How fast did you guess?", "Did it fool you?", "Were you right?",
-              "Comment your guess!"],
+    # 最後の一言: 答えをコメントしたくなる問いと、毎日続くシリーズだと伝える一言(登録につなげる。2026-11-21〜)
+    "outro": ["What did you guess? Follow for a new mystery object every day!",
+              "Tell me your guess, and follow for tomorrow's object!",
+              "Did it fool you? Follow for a new close-up every day!",
+              "Comment your first guess, and follow for more!",
+              "How fast did you get it? Follow for daily mystery objects!"],
 }
 
 
