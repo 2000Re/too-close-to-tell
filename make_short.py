@@ -33,7 +33,8 @@ def candidates(cat, rng):
         except Exception as e:
             print(f"  検索できません({q}): {e}")
     ids = list(dict.fromkeys(ids))
-    rng.shuffle(ids)
+    if cat not in K.KITCHEN:        # 台所の道具は、検索結果の中で当てはまる物が少なく上の方に集まるので、順番のまま調べる
+        rng.shuffle(ids)
     return ids
 
 
@@ -61,6 +62,13 @@ def find(cat, used, rng, log):
     return None
 
 
+# 昔の台所・家事の道具の回の題名(その回の中で順に回す)
+KITCHEN_TITLES = [
+    ("kitchen_old", "This old everyday tool looks strange up close. What is it? 🔍"),
+    ("kitchen_long_ago", "People used this every day long ago. Can you guess what it is? 🔍"),
+    ("kitchen_mystery", "A mystery tool from long ago. What was it for? 🔍"),
+]
+
 LEADS = ["Can you tell what it is before it zooms out? 🔍", "Guess the object before the camera pulls back! 🔍",
          "How close is too close? Guess what this is! 🔎", "Pause and guess first, then watch it zoom out! 👀"]
 
@@ -74,8 +82,10 @@ SISTERS = [
 
 
 def description(o, text):
+    lead = ("An old everyday tool, seen far too close. Can you tell what it was for? 🔍" if text.get("kitchen")
+            else LEADS[text.get("number", 1) % len(LEADS)])
     return "\n".join([
-        LEADS[text.get("number", 1) % len(LEADS)],
+        lead,
         "",
         "Choices: " + " / ".join(text["choices"]),
         "",
@@ -89,7 +99,8 @@ def description(o, text):
         f"More mystery close-ups: {SITE}/",
         "Image: The Metropolitan Museum of Art, Open Access (CC0). This channel is not affiliated with the museum.",
         "",
-        "💬 What did you guess? Tell me in the comments!",
+        ("💬 Would you still use this today? Tell me in the comments!" if text.get("kitchen")
+         else "💬 What did you guess? Tell me in the comments!"),
         "🔔 Follow for a new mystery object every day.",
         "",
         "More quizzes from the same creator:",
@@ -129,7 +140,7 @@ def main():
     else:
         tried = []
         for _ in range(6):
-            cat = args.category or K.next_category(history + [{"category": c} for c in tried], rng)
+            cat = args.category or K.next_category(history + [{"category": c} for c in tried], rng, number)
             print("カテゴリ:", cat)
             found = find(cat, used, rng, print)
             if found:
@@ -142,11 +153,16 @@ def main():
     text = describe.texts(o, cat)
     text["choices"], text["correct"] = K.choices_for(cat, rng)
     text["number"] = number
+    text["kitchen"] = cat in K.KITCHEN
     a, b, c3 = [x[:1].lower() + x[1:] if x.lower().startswith(("a ", "an ")) else x for x in text["choices"]]
     text["say_choices"] = f"{text['choices'][0]}, {b}, or {c3}?"
     seconds = video.render(img, s, text, M.make_tts(args.tts), out)
-    title, title_style = describe.video_title(o, number, [h.get("title", "") for h in history],
-                                              history[-1].get("title_style") if history else None)
+    if cat in K.KITCHEN:
+        style_i = number // K.KITCHEN_EVERY % len(KITCHEN_TITLES)
+        title_style, title = KITCHEN_TITLES[style_i]
+    else:
+        title, title_style = describe.video_title(o, number, [h.get("title", "") for h in history],
+                                                  history[-1].get("title_style") if history else None)
     meta = {
         "number": number,
         "key": f"met:{o['objectID']}",
@@ -157,10 +173,12 @@ def main():
         "date": now.date().isoformat(),
         "title": f"[{number}] {title}",
         "title_style": title_style,
-        "ending": "short_quiet",       # 説明を読み上げない短い版(2026-11-21〜。stats.md で比べる)
+        "ending": "short_quiet",
+        "format": "kitchen" if cat in K.KITCHEN else "object",   # 昔の台所・家事の道具の回と、ふつうの回を比べる       # 説明を読み上げない短い版(2026-11-21〜。stats.md で比べる)
         "description": description(o, text),
         "tags": ["what is it", "guess the object", "close up", "zoom out", "museum", "quiz",
-                 K.CATEGORIES[cat][4]],
+                 K.CATEGORIES[cat][4]] + (["antique kitchen tools", "old kitchen gadgets", "history"]
+                                          if cat in K.KITCHEN else []),
         "answer": text["answer"],
         "spot": [round(v) for v in s[:3]],
         "site": {

@@ -51,7 +51,24 @@ CATEGORIES = {
     "candlestick": (["candlestick"], ["candlestick"], ["print", "drawing", "design"], "a candlestick", "candlestick"),
     "hat": (["hat"], ["hat"], ["hatpin", "print", "photograph", "drawing", "pin", "box"], "a hat", "hat"),
     "bottle": (["bottle"], ["bottle"], ["print", "drawing", "snuff"], "a bottle", "bottle"),
+    # 昔の台所・家事の道具(2026-11-21 追加。KITCHEN_EVERY 本に1本)。どアップだと用途が分からない、見た目と用途の
+    # ギャップを楽しむ回。答えは作品名(objectName)そのままの道具だけにする(作品名に need の語を含むものだけ)
+    "jagging": (["jagging wheel"], ["jagging"], ["print", "drawing"], "a pie crimper", "pie crimper (jagging wheel)"),
+    "nutmeg": (["nutmeg grater"], ["nutmeg"], ["print", "drawing"], "a nutmeg grater", "nutmeg grater"),
+    "corkscrew": (["corkscrew"], ["corkscrew"], ["print", "drawing", "locks"], "a corkscrew", "corkscrew"),
+    "sugar_tongs": (["sugar tongs"], ["sugar tongs"], ["print", "drawing"], "a pair of sugar tongs",
+                    "pair of sugar tongs"),
+    "mortar": (["mortar and pestle"], ["mortar and pestle", "mortar, pestle"], ["print", "drawing", "cosmetic"],
+               "a mortar and pestle", "mortar and pestle"),
+    "marrow": (["marrow scoop", "marrow spoon"], ["marrow"], ["print", "drawing", "?"], "a marrow spoon",
+               "marrow spoon"),
+    "trivet": (["trivet"], ["trivet"], ["print", "drawing"], "a trivet", "trivet"),
+    "toaster": (["toaster"], ["toaster"], ["print", "drawing"], "a toaster", "toaster"),
 }
+
+# 昔の台所・家事の道具の回。番号が KITCHEN_EVERY の倍数の回は、ここから選ぶ(それ以外の回では選ばない)
+KITCHEN = {"jagging", "nutmeg", "corkscrew", "sugar_tongs", "mortar", "marrow", "trivet", "toaster"}
+KITCHEN_EVERY = 4
 
 # 今の暮らしで見かける身近な物。2026-11-17 の stats.md で、靴(422)は兜・盾・角笛(66〜108)の3倍以上見られていたので、
 # 身近な物を中心に出す(EVERYDAY_SHARE の割合)。それ以外(武具・古い楽器・天文の道具など)もときどき出す
@@ -74,11 +91,19 @@ GROUPS = [
     {"teapot", "teacup", "bottle", "nautilus", "spoon"},
     {"snuffbox", "lock"},
     {"shoes", "hat"},
+    KITCHEN,            # 台所の道具どうしは並べない(外れは別の種類の物にして、見た目と用途のギャップを出す)
+    {"marrow", "spoon"},    # 骨髄用スプーンもスプーンなので、「A spoon」と並べると答えが2つになる
+    {"jagging", "scissors"},
 ]
 
 
 def group_of(cat):
-    return next((g for g in GROUPS if cat in g), {cat})
+    """cat と同じ回に並べないカテゴリ(cat を含むすべての組を合わせたもの)。"""
+    out = {cat}
+    for g in GROUPS:
+        if cat in g:
+            out |= g
+    return out
 
 
 def choices_for(cat, rng):
@@ -86,7 +111,7 @@ def choices_for(cat, rng):
     taken = set(group_of(cat))
     wrong = []
     for _ in range(2):
-        pool = [c for c in CATEGORIES if c not in taken]
+        pool = [c for c in CATEGORIES if c not in taken and c not in KITCHEN]
         every = [c for c in pool if c in EVERYDAY]
         pick = rng.choice(every if every and rng.random() < 0.8 else pool)
         wrong.append(pick)
@@ -109,10 +134,22 @@ def ok_object(o, cat):
     return not any(b in text for b in BANNED)
 
 
-def next_category(history, rng):
-    """直近 RECENT 本に出ていないカテゴリから選ぶ。EVERYDAY_SHARE の割合で身近な物(EVERYDAY)から選ぶ。"""
+def is_kitchen_turn(number):
+    return number % KITCHEN_EVERY == 0
+
+
+def next_category(history, rng, number=None):
+    """直近 RECENT 本に出ていないカテゴリから選ぶ。EVERYDAY_SHARE の割合で身近な物(EVERYDAY)から選ぶ。
+    番号が KITCHEN_EVERY の倍数の回は、昔の台所・家事の道具(KITCHEN)から選ぶ(直近 KITCHEN に出たものは後回し)。"""
     recent = [h.get("category") for h in history[-RECENT:]]
-    cats = [c for c in CATEGORIES if c not in recent] or list(CATEGORIES)
+    if number and is_kitchen_turn(number):
+        done = [h.get("category") for h in history if h.get("category") in KITCHEN]
+        tried = recent[-6:]
+        pool = [c for c in KITCHEN if c not in done[-(len(KITCHEN) - 1):] and c not in tried] or \
+            [c for c in KITCHEN if c not in tried] or sorted(KITCHEN)
+        return rng.choice(sorted(pool))
+    cats = [c for c in CATEGORIES if c not in recent and c not in KITCHEN] or \
+        [c for c in CATEGORIES if c not in KITCHEN]
     every = [c for c in cats if c in EVERYDAY]
     other = [c for c in cats if c not in EVERYDAY]
     if every and (not other or rng.random() < EVERYDAY_SHARE):
