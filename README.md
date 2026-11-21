@@ -112,3 +112,11 @@ Shorts は最後まで見られると頭からくり返される。くり返し�
 - 説明欄に「What did you guess? Tell me in the comments!」「Follow for a new mystery object every day.」と、
   姉妹チャンネル(Wait, That Big?・Painted When?・Guess From Space)へのリンク(`make_short.SISTERS`)
 - ほかの3チャンネルの説明欄からも、このチャンネルへリンクする
+
+## 短くした(2026-11-21〜)
+
+平均視聴割合(YouTube Analytics)が、Wait, That Big? の 90% 台に対して、このチャンネルは 56〜73% だった。
+答えのあとの説明(「An Italian violin by …, from 1693. That's over 330 years old!」)の読み上げで離れる人が多いとみて、
+読み上げはやめて画面に出すだけにした(`video.READ_SEC` 秒以上読めるようにする)。100年以上前の物は、
+「Over 330 years old!」を答えの上に大きく出す(`describe.texts` の `age_line`)。15〜24秒 → 約13〜15秒。
+投稿記録の `ending` は `short_quiet`(それまでの `short_tail` と、`stats.md` で比べられる)。
