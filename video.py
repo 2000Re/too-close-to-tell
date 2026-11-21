@@ -75,7 +75,7 @@ def render(img, spot, text, tts, out):
     at["ans"] = pull[1] - 0.2
     at["info"] = at["ans"] + dur["ans"] + 0.2
     at["outro"] = at["info"] + dur["info"] + 0.3
-    end = at["outro"] + dur["outro"] + 0.6
+    end = at["outro"] + dur["outro"] + 0.3      # 2026-11-21 に 0.6 から短くした(くり返し再生につなげやすく)
     effects = [(M.sfx_whoosh(), 0.0), *M.countdown_ticks(reveal), (M.sfx_whoosh(), pull[0]), (M.sfx_ding(), at["ans"])]
     wav = out / "audio.wav"
     M.write_audio(wav, end, clips, at, effects)
