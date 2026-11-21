@@ -143,6 +143,7 @@ def main():
         "date": now.date().isoformat(),
         "title": f"[{number}] {title}",
         "title_style": title_style,
+        "ending": "short_tail",        # 最後の間を短くした終わり方(2026-11-21〜。stats.md で比べる)
         "description": description(o, text),
         "tags": ["what is it", "guess the object", "close up", "zoom out", "museum", "quiz",
                  K.CATEGORIES[cat][4]],
