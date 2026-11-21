@@ -15,8 +15,8 @@
    "views": 404
   },
   "latest": {
-   "age_h": 134,
-   "at": "2026-11-20T00:46:32+00:00",
+   "age_h": 157,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
    "likes": 1,
    "views": 391
@@ -24,24 +24,58 @@
   "video_id": "EBYsbiJicSI"
  },
  "10": {
-  "latest": {
-   "age_h": 17,
-   "at": "2026-11-20T00:46:32+00:00",
+  "day1": {
+   "age_h": 40,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
-   "likes": 1,
-   "views": 172
+   "likes": 2,
+   "views": 188
+  },
+  "latest": {
+   "age_h": 40,
+   "at": "2026-11-21T00:06:12+00:00",
+   "comments": 0,
+   "likes": 2,
+   "views": 188
   },
   "video_id": "1bJh4SgFTPI"
  },
  "11": {
-  "latest": {
-   "age_h": 14,
-   "at": "2026-11-20T00:46:32+00:00",
+  "day1": {
+   "age_h": 37,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
-   "likes": 1,
-   "views": 90
+   "likes": 2,
+   "views": 103
+  },
+  "latest": {
+   "age_h": 37,
+   "at": "2026-11-21T00:06:12+00:00",
+   "comments": 0,
+   "likes": 2,
+   "views": 103
   },
   "video_id": "28QQx70N1cA"
+ },
+ "12": {
+  "latest": {
+   "age_h": 16,
+   "at": "2026-11-21T00:06:12+00:00",
+   "comments": 0,
+   "likes": 2,
+   "views": 585
+  },
+  "video_id": "VN7L4eWd5H4"
+ },
+ "13": {
+  "latest": {
+   "age_h": 13,
+   "at": "2026-11-21T00:06:12+00:00",
+   "comments": 0,
+   "likes": 2,
+   "views": 433
+  },
+  "video_id": "tQmPabylZ14"
  },
  "2": {
   "day1": {
@@ -59,8 +93,8 @@
    "views": 68
   },
   "latest": {
-   "age_h": 132,
-   "at": "2026-11-20T00:46:32+00:00",
+   "age_h": 155,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
    "likes": 1,
    "views": 69
@@ -83,8 +117,8 @@
    "views": 112
   },
   "latest": {
-   "age_h": 113,
-   "at": "2026-11-20T00:46:32+00:00",
+   "age_h": 136,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
    "likes": 2,
    "views": 112
@@ -107,8 +141,8 @@
    "views": 145
   },
   "latest": {
-   "age_h": 108,
-   "at": "2026-11-20T00:46:32+00:00",
+   "age_h": 131,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
    "likes": 2,
    "views": 144
@@ -131,8 +165,8 @@
    "views": 433
   },
   "latest": {
-   "age_h": 89,
-   "at": "2026-11-20T00:46:32+00:00",
+   "age_h": 112,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
    "likes": 7,
    "views": 433
@@ -155,8 +189,8 @@
    "views": 110
   },
   "latest": {
-   "age_h": 84,
-   "at": "2026-11-20T00:46:32+00:00",
+   "age_h": 107,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
    "likes": 1,
    "views": 110
@@ -171,9 +205,16 @@
    "likes": 2,
    "views": 254
   },
+  "day3": {
+   "age_h": 88,
+   "at": "2026-11-21T00:06:12+00:00",
+   "comments": 0,
+   "likes": 2,
+   "views": 254
+  },
   "latest": {
-   "age_h": 65,
-   "at": "2026-11-20T00:46:32+00:00",
+   "age_h": 88,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
    "likes": 2,
    "views": 254
@@ -189,8 +230,8 @@
    "views": 64
   },
   "latest": {
-   "age_h": 41,
-   "at": "2026-11-20T00:46:32+00:00",
+   "age_h": 64,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
    "likes": 1,
    "views": 64
@@ -206,12 +247,13 @@
    "views": 154
   },
   "latest": {
-   "age_h": 38,
-   "at": "2026-11-20T00:46:32+00:00",
+   "age_h": 61,
+   "at": "2026-11-21T00:06:12+00:00",
    "comments": 0,
    "likes": 1,
-   "views": 154
+   "views": 155
   },
   "video_id": "shYQUBCQ8Z8"
- }
+ },
+ "_analytics_note": "YouTube Analytics の数字は取っていない(トークンに yt-analytics.readonly のスコープがないか、YouTube Analytics API が有効になっていない)"
 }
