@@ -48,8 +48,19 @@ LINES = {
 }
 
 
-def vary(number, key):
-    opts = LINES[key]
+# 昔の台所・家事の道具の回(catalog.KITCHEN)の言い回し
+KITCHEN_LINES = {
+    "q": ["This old everyday tool looks strange up close. What is it?",
+          "People used this every day long ago. What is it?",
+          "An old everyday tool, way too close. What is it?"],
+    "outro": ["Would you still use this today? Tell me below, and follow for more!",
+              "Did it fool you? Follow for more strange old tools!",
+              "Have you ever seen one of these? Comment below!"],
+}
+
+
+def vary(number, key, kitchen=False):
+    opts = KITCHEN_LINES[key] if kitchen and key in KITCHEN_LINES else LINES[key]
     return opts[(number + sum(map(ord, key))) % len(opts)]
 
 
@@ -64,12 +75,12 @@ def render(img, spot, text, tts, out):
     end_w = min(max((x1 - x0) * 1.3, (y1 - y0) * 1.85 * W / H), cw, ch * W / H)
 
     lines = {
-        "q": vary(text.get("number", 1), "q"),
+        "q": vary(text.get("number", 1), "q", text.get("kitchen")),
         "c": text["say_choices"],
         "lock": vary(text.get("number", 1), "lock"),
         "ans": text["say_answer"],
         # 作品の説明(say_info)は読み上げず、画面に出すだけ(2026-11-21〜。答えのあとに離れる人が多かったので短くした)
-        "outro": vary(text.get("number", 1), "outro"),
+        "outro": vary(text.get("number", 1), "outro", text.get("kitchen")),
     }
     clips, dur = M.say_all(tts, lines)
     at = {"q": 0.1}
@@ -110,7 +121,7 @@ def render(img, spot, text, tts, out):
         sd.line([0, y, W, y], fill=(6, 8, 14, int(225 * ((y - (H - 520)) / 520) ** 1.2)))
 
     kicker = M.text_layer(["WHAT IS IT?"], M.font(M.SANS_BOLD, 88), M.WHITE, shadow=230)
-    sub = M.text_layer(["Guess before it zooms out!"], M.font(M.SANS_BOLD, 40), M.GOLD + (255,), shadow=220)
+    sub = M.text_layer(["An old everyday tool. Guess!" if text.get("kitchen") else "Guess before it zooms out!"], M.font(M.SANS_BOLD, 40), M.GOLD + (255,), shadow=220)
     pills = [M.pill(c, (220, 220, 230), w=320, size=34) for c in text["choices"]]
     right = M.pill(text["choices"][text["correct"]], (220, 220, 230), w=320, size=34, glow=True)
     f_count = M.font(M.SANS_BOLD, 150)
