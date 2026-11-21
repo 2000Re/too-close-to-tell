@@ -65,6 +65,14 @@ LEADS = ["Can you tell what it is before it zooms out? 🔍", "Guess the object 
          "How close is too close? Guess what this is! 🔎", "Pause and guess first, then watch it zoom out! 👀"]
 
 
+# 姉妹チャンネル(説明欄の終わりで紹介する。上級者向け機能でリンクがクリックできる)
+SISTERS = [
+    ("🗺️ Wait, That Big? — the true size of countries on the map", "https://www.youtube.com/@wait-that-big"),
+    ("🎨 Painted When? — guess the year a famous painting was made", "https://www.youtube.com/@painted-when"),
+    ("🛰️ Guess From Space — name famous places from satellite images", "https://www.youtube.com/@guess-from-space"),
+]
+
+
 def description(o, text):
     return "\n".join([
         LEADS[text.get("number", 1) % len(LEADS)],
@@ -80,6 +88,12 @@ def description(o, text):
         f"Details: {o.get('objectURL') or 'https://www.metmuseum.org/'}",
         f"More mystery close-ups: {SITE}/",
         "Image: The Metropolitan Museum of Art, Open Access (CC0). This channel is not affiliated with the museum.",
+        "",
+        "💬 What did you guess? Tell me in the comments!",
+        "🔔 Follow for a new mystery object every day.",
+        "",
+        "More quizzes from the same creator:",
+        *[f"{t}: {u}" for t, u in SISTERS],
         "",
         HASHTAGS,
     ])
