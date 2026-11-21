@@ -169,6 +169,10 @@ def main():
     })
     history_path.write_text(json.dumps(history, ensure_ascii=False, indent=2) + "\n")
 
+    # 合う再生リストに入れる(playlists.py・playlist_rules.py)。失敗しても投稿は止めない
+    import playlists
+    playlists.add_after_upload(token, history[-1])
+
     # サイト(docs/)に動画のページを足す。失敗しても投稿の記録は残す(記録がないと同じ作品をまた選んでしまう)
     if meta.get("site"):
         try:
