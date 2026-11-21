@@ -32,6 +32,8 @@ def make_canvas(img):
     return canvas, pad_x, pad_y
 
 
+READ_SEC = 2.4      # 答えのあと、画面の作品名・説明・年数を読める時間(読み上げはしないので)
+
 # 毎回ちがう言い回し(繰り返しの多い動画に見えないように)。番号で回すので、同じ番号なら作り直しても同じ
 LINES = {
     "q": ["What is it?", "Can you tell what this is?", "What are we looking at?", "Any idea what this is?",
@@ -66,7 +68,7 @@ def render(img, spot, text, tts, out):
         "c": text["say_choices"],
         "lock": vary(text.get("number", 1), "lock"),
         "ans": text["say_answer"],
-        "info": text["say_info"],
+        # 作品の説明(say_info)は読み上げず、画面に出すだけ(2026-11-21〜。答えのあとに離れる人が多かったので短くした)
         "outro": vary(text.get("number", 1), "outro"),
     }
     clips, dur = M.say_all(tts, lines)
@@ -77,9 +79,10 @@ def render(img, spot, text, tts, out):
     reveal = at["lock"] + dur["lock"] + THINK
     pull = (reveal, reveal + 1.3)
     at["ans"] = pull[1] - 0.2
-    at["info"] = at["ans"] + dur["ans"] + 0.2
-    at["outro"] = at["info"] + dur["info"] + 0.3
-    end = at["outro"] + dur["outro"] + 0.3      # 2026-11-21 に 0.6 から短くした(くり返し再生につなげやすく)
+    at["info"] = at["ans"] + 0.25               # 答えを言い始めたら、作品名・説明・年数を画面に出す
+    at["outro"] = at["ans"] + dur["ans"] + 0.3
+    # 画面の説明を読める時間を READ_SEC 以上とる。最後の間は 0.3 秒(くり返し再生につなげやすく)
+    end = max(at["outro"] + dur["outro"] + 0.3, at["info"] + 0.4 + READ_SEC)
     effects = [(M.sfx_whoosh(), 0.0), *M.countdown_ticks(reveal), (M.sfx_whoosh(), pull[0]), (M.sfx_ding(), at["ans"])]
     wav = out / "audio.wav"
     M.write_audio(wav, end, clips, at, effects)
@@ -116,6 +119,8 @@ def render(img, spot, text, tts, out):
     m_lines, m_font = M.fit_lines(text["meta"], M.SANS, W - 160, [32, 28, 26], max_lines=2)
     meta = M.text_layer(m_lines, m_font, (235, 235, 240, 255), shadow=220)
     credit = M.text_layer([CREDIT], M.font(M.SANS, 24), (190, 195, 210, 235), shadow=180)
+    age_line = (M.text_layer([text["age_line"]], M.font(M.SANS_BOLD, 72), M.GOLD + (255,), shadow=240)
+                if text.get("age_line") else None)
     info_h = title.height + meta.height + 10
     info_y = 1665                                  # 選択肢の下
 
@@ -147,6 +152,9 @@ def render(img, spot, text, tts, out):
             M.band(im, info_y - 14, info_y + info_h + 4, ri, x0=60, x1=W - 60)
             im.alpha_composite(M.with_alpha(title, ri), (0, info_y - 8))
             im.alpha_composite(M.with_alpha(meta, ri), (0, info_y + title.height))
+            if age_line is not None:                           # 「Over 330 years old!」(3・2・1 の数字があった場所)
+                M.band(im, 1338, 1340 + age_line.height + 6, ri * 0.8, x0=110, x1=W - 110)
+                im.alpha_composite(M.with_alpha(age_line, ri), (0, 1340))
         im.alpha_composite(credit, (0, 1868))
         return im
 

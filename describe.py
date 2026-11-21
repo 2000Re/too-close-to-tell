@@ -172,6 +172,8 @@ def texts(o, cat):
         "answer": answer[:1].upper() + answer[1:],
         "say_answer": f"It's {answer}!",
         "say_info": sentence,
+        # 答えの画面に大きく出す一言(読み上げない)。100年以上前のものだけ
+        "age_line": f"Over {age // 10 * 10:,} years old!" if age and age >= 100 else None,
         "title": clean(o.get("title")) or noun.capitalize(),
         "meta": meta,
     }
