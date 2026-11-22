@@ -206,5 +206,18 @@
   "image": "https://images.metmuseum.org/CRDImages/es/web-large/DP268872.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/195723",
   "category": "sugar_tongs"
+ },
+ {
+  "number": 17,
+  "slug": "17-natural-trumpet",
+  "video_id": "GqLz6cONl_A",
+  "uploaded_at": "2026-11-22T10:43:12+00:00",
+  "answer": "A trumpet",
+  "title": "Natural Trumpet",
+  "info": "A German trumpet by Johann Wilhelm Haas, from around 1700. That's over 310 years old!",
+  "meta": "Johann Wilhelm Haas, ca. 1700 · Silver",
+  "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP341872.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/503968",
+  "category": "trumpet"
  }
 ]
