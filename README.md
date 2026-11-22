@@ -57,7 +57,7 @@ Wait, That Big? と同じ手順(チャンネルは同じ Google アカウント�
 3. OAuth クライアント(デスクトップアプリ)→ JSON → ローカルで `python get_youtube_refresh_token.py client_secret_xxx.json`。**チャンネルの選択で Too Close to Tell を選ぶ**
 4. Text-to-Speech の API キー(Cloud Text-to-Speech API だけに制限)
 5. Secrets: `YT_CLIENT_ID`、`YT_CLIENT_SECRET`、`YT_REFRESH_TOKEN`、`YT_CHANNEL_ID`、`GOOGLE_TTS_API_KEY`。Variables: `AUTO_POST` = `true`
-6. cron-job.org: `POST https://api.github.com/repos/2000Re/too-close-to-tell/actions/workflows/post.yml/dispatches`、本文 `{"ref":"main","inputs":{"scheduled":"true"}}`、ヘッダー `Authorization: Bearer <token>`・`Accept: application/vnd.github+json`。時刻は毎日 16:41・19:41 JST、取りこぼし用に 16:59・19:59(`41,59 16,19 * * *`。2026-11-22 に予備を追加。先の回が成功していれば、予備の回は posted_today.py が止める)。2026-11-17 に 21:41 から 19:41 に変更(21時台の3本の平均 106回に対し、19時台は 404回だったため)
+6. cron-job.org: `POST https://api.github.com/repos/2000Re/too-close-to-tell/actions/workflows/post.yml/dispatches`、本文 `{"ref":"main","inputs":{"scheduled":"true"}}`、ヘッダー `Authorization: Bearer <token>`・`Accept: application/vnd.github+json`。時刻は毎日 16:08・19:08 JST、取りこぼし用に30分後の 16:38・19:38(`08,38 16,19 * * *`。2026-11-22 に 16:41・19:41 から変更。先の回が成功していれば、予備の回は posted_today.py が止める)。2026-11-17 に 21:41 から 19:41 に変更(21時台の3本の平均 106回に対し、19時台は 404回だったため)
 
 ウェブサイト(Settings → Pages → `main` / `/docs`):
 
