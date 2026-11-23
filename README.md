@@ -149,3 +149,15 @@ Shorts は最後まで見られると頭からくり返される。くり返し�
   `python get_youtube_refresh_token.py client_secret.json` を実行し、Secrets の `YT_REFRESH_TOKEN` を新しい値にする
 - これまでの動画は、Actions の「playlists」を手動で1回動かすとまとめて入る(入っている動画は入れ直さない)
 - `playlists.py` と `.github/workflows/playlists.yml` は4チャンネルで同じファイル(`sync_check.py` で確かめる)
+
+## 通常動画「10 Mystery Objects」(2026-11-23〜、`longform.py`)
+
+横長(1920x1080)、10問・約3分、週1本(毎週木曜 10:13 UTC ごろ。`LONGFORM_AUTO` が `true` のときだけ)。
+右に美術館の写真(どアップから少しずつ引く)、左の帯に問題・3択・5秒のカウントダウン。答えで全体まで引いて、
+作品名・作り手と年代・何年前か(どれも美術館のデータから)。最後に10点を並べる。
+
+- カテゴリは重ならない10種類: 身近な物7、昔の道具2まで、残りはそれ以外。似た物(楽器どうしなど)は1つだけ
+- Shorts と過去の通常動画で使った作品は使わない。Shorts も通常動画で使った作品を選ばない
+- チャプターは「Object 1」などにして、答えは書かない。答えは説明欄の下の方にまとめる
+- サムネイル a・b・c、再生リスト「10 Mystery Objects: Full Quizzes」、Shorts の説明欄のリンクは他のチャンネルと同じ
+- Met の写真は1点ずつ取って、どアップに向くか確かめる(`make_short.find`)ので、作るのに時間がかかる(最大75分)

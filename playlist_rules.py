@@ -1,5 +1,8 @@
 """Too Close to Tell の再生リストの決め方(playlists.py が使う)。物の種類(catalog のカテゴリ)でまとめる。"""
-HISTORIES = ["upload_history.json"]
+HISTORIES = ["upload_history.json", "longform_history.json"]
+
+LONG = ("10 Mystery Objects: Full Quizzes",
+        "10 museum objects in every episode, each starting as an extreme close-up. Keep score!")
 
 GROUPS = [
     ({"jagging", "nutmeg", "corkscrew", "sugar_tongs", "mortar", "marrow", "trivet", "toaster"},
@@ -16,6 +19,8 @@ OTHER = ("Everyday Objects Too Close to Tell",
 
 
 def for_record(rec):
+    if "keys" in rec:                       # longform_history.json(通常動画)
+        return [LONG]
     cat = rec.get("category")
     if not cat:
         return []
