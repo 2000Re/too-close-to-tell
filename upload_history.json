@@ -253,5 +253,20 @@
     "video_id": "rWAZSxS2V0o",
     "privacy": "public",
     "uploaded_at": "2026-11-23T07:10:24+00:00"
+  },
+  {
+    "number": 19,
+    "key": "met:501569",
+    "category": "violin",
+    "object_id": 501569,
+    "object_title": "\"Savart model\" Violin",
+    "date": "2026-11-23",
+    "title": "[19] A mystery object from France. What is it? 🔍",
+    "answer": "A violin",
+    "title_style": "country",
+    "ending": "short_quiet",
+    "video_id": "FVh2JM7ahik",
+    "privacy": "public",
+    "uploaded_at": "2026-11-23T10:09:28+00:00"
   }
 ]

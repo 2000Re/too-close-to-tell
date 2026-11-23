@@ -232,5 +232,18 @@
   "image": "https://images.metmuseum.org/CRDImages/is/web-large/DP-35911-001.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/444701",
   "category": "bottle"
+ },
+ {
+  "number": 19,
+  "slug": "19-savart-model-violin",
+  "video_id": "FVh2JM7ahik",
+  "uploaded_at": "2026-11-23T10:09:28+00:00",
+  "answer": "A violin",
+  "title": "\"Savart model\" Violin",
+  "info": "A French violin by Ch. Michel, from the nineteenth century. That's over 180 years old!",
+  "meta": "Ch. Michel, ca. 1819 · Wood",
+  "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP-21458-001.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/501569",
+  "category": "violin"
  }
 ]
