@@ -81,6 +81,16 @@ SISTERS = [
 ]
 
 
+def latest_long():
+    """いちばん新しい公開の通常動画(10 Mystery Objects)の (番号, URL)。なければ None。"""
+    try:
+        hist = json.loads((Path(__file__).resolve().parent / "longform_history.json").read_text() or "[]")
+    except (OSError, ValueError):
+        return None
+    pub = [h for h in hist if h.get("video_id") and h.get("privacy") == "public"]
+    return (pub[-1]["number"], f"https://youtu.be/{pub[-1]['video_id']}") if pub else None
+
+
 def description(o, text):
     lead = ("An old everyday tool, seen far too close. Can you tell what it was for? 🔍" if text.get("kitchen")
             else LEADS[text.get("number", 1) % len(LEADS)])
@@ -97,6 +107,8 @@ def description(o, text):
         "",
         f"Details: {o.get('objectURL') or 'https://www.metmuseum.org/'}",
         f"More mystery close-ups: {SITE}/",
+        *([f"▶️ Try the full 10 Mystery Objects challenge #{latest_long()[0]}: {latest_long()[1]}"]
+          if latest_long() else []),
         "Image: The Metropolitan Museum of Art, Open Access (CC0). This channel is not affiliated with the museum.",
         "",
         ("💬 Would you still use this today? Tell me in the comments!" if text.get("kitchen")
@@ -124,6 +136,9 @@ def main():
     hp = Path(args.history)
     history = json.loads(hp.read_text()) if hp.exists() else []
     used = {h["key"] for h in history}
+    lp = Path(__file__).resolve().parent / "longform_history.json"      # 通常動画(longform.py)で使った作品も選ばない
+    if lp.exists():
+        used |= {k for h in json.loads(lp.read_text() or "[]") for k in h.get("keys", [])}
     number = max([h["number"] for h in history], default=0) + 1
     now = datetime.now(TZ)
     rng = random.Random(f"{now.date()}:{number}")
