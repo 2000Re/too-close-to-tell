@@ -268,5 +268,20 @@
     "video_id": "FVh2JM7ahik",
     "privacy": "public",
     "uploaded_at": "2026-11-23T10:09:28+00:00"
+  },
+  {
+    "number": 20,
+    "key": "met:206740",
+    "category": "mortar",
+    "object_id": 206740,
+    "object_title": "Mortar and pestle",
+    "date": "2026-11-24",
+    "title": "[20] A mystery tool from long ago. What was it for? 🔍",
+    "answer": "A mortar and pestle",
+    "title_style": "kitchen_mystery",
+    "ending": "short_quiet",
+    "video_id": "aT8f6YJCUmg",
+    "privacy": "public",
+    "uploaded_at": "2026-11-23T19:10:29+00:00"
   }
 ]
