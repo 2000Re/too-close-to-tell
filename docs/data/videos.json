@@ -271,5 +271,18 @@
   "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP169123.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/504214",
   "category": "mandolin"
+ },
+ {
+  "number": 22,
+  "slug": "22-snuffbox",
+  "video_id": "1GDUWa8mHqc",
+  "uploaded_at": "2026-11-24T18:10:55+00:00",
+  "answer": "A snuffbox",
+  "title": "Snuffbox",
+  "info": "A snuffbox by Meissen Manufactory, from around 1750. That's over 270 years old!",
+  "meta": "Meissen Manufactory, ca. 1744–50 · Hard-paste porcelain, gold",
+  "image": "https://images.metmuseum.org/CRDImages/es/web-large/DT7155.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/207217",
+  "category": "snuffbox"
  }
 ]

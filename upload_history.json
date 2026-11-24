@@ -299,5 +299,21 @@
     "video_id": "PWvZVrNmZUo",
     "privacy": "public",
     "uploaded_at": "2026-11-24T07:24:34+00:00"
+  },
+  {
+    "number": 22,
+    "key": "met:207217",
+    "category": "snuffbox",
+    "object_id": 207217,
+    "object_title": "Snuffbox",
+    "date": "2026-11-25",
+    "title": "[22] Made around 1750. Can you guess what it is? 🔍",
+    "answer": "A snuffbox",
+    "title_style": "made_when",
+    "ending": "short_quiet",
+    "teaser": null,
+    "video_id": "1GDUWa8mHqc",
+    "privacy": "public",
+    "uploaded_at": "2026-11-24T18:10:55+00:00"
   }
 ]
