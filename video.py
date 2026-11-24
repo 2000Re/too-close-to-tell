@@ -80,7 +80,7 @@ def render(img, spot, text, tts, out):
         "lock": vary(text.get("number", 1), "lock"),
         "ans": text["say_answer"],
         # 作品の説明(say_info)は読み上げず、画面に出すだけ(2026-11-21〜。答えのあとに離れる人が多かったので短くした)
-        "outro": vary(text.get("number", 1), "outro", text.get("kitchen")),
+        "outro": (text.get("teaser") or {}).get("outro") or vary(text.get("number", 1), "outro", text.get("kitchen")),
     }
     clips, dur = M.say_all(tts, lines)
     at = {"q": 0.1}
