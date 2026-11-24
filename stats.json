@@ -1,7 +1,7 @@
 {
  "1": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 12,
    "averageViewPercentage": 63.78,
    "subscribersGained": 0,
@@ -29,8 +29,8 @@
    "views": 391
   },
   "latest": {
-   "age_h": 205,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 233,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 1,
    "views": 391
@@ -39,11 +39,11 @@
  },
  "10": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 11,
    "averageViewPercentage": 48.28,
    "subscribersGained": 0,
-   "views": 197
+   "views": 191
   },
   "day1": {
    "age_h": 40,
@@ -60,8 +60,8 @@
    "views": 191
   },
   "latest": {
-   "age_h": 88,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 116,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 2,
    "views": 191
@@ -70,11 +70,11 @@
  },
  "11": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 14,
    "averageViewPercentage": 67.87,
    "subscribersGained": 0,
-   "views": 104
+   "views": 105
   },
   "day1": {
    "age_h": 37,
@@ -91,8 +91,8 @@
    "views": 105
   },
   "latest": {
-   "age_h": 85,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 113,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 2,
    "views": 105
@@ -101,11 +101,11 @@
  },
  "12": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 11,
-   "averageViewPercentage": 76.28,
+   "averageViewPercentage": 76.57,
    "subscribersGained": 0,
-   "views": 551
+   "views": 553
   },
   "day1": {
    "age_h": 40,
@@ -114,9 +114,16 @@
    "likes": 2,
    "views": 553
   },
+  "day3": {
+   "age_h": 92,
+   "at": "2026-11-24T04:01:25+00:00",
+   "comments": 0,
+   "likes": 2,
+   "views": 553
+  },
   "latest": {
-   "age_h": 64,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 92,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 2,
    "views": 553
@@ -125,11 +132,11 @@
  },
  "13": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 15,
-   "averageViewPercentage": 91.49,
+   "averageViewPercentage": 91.24,
    "subscribersGained": 0,
-   "views": 415
+   "views": 423
   },
   "day1": {
    "age_h": 37,
@@ -138,9 +145,16 @@
    "likes": 2,
    "views": 423
   },
+  "day3": {
+   "age_h": 89,
+   "at": "2026-11-24T04:01:25+00:00",
+   "comments": 0,
+   "likes": 2,
+   "views": 423
+  },
   "latest": {
-   "age_h": 61,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 89,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 2,
    "views": 423
@@ -149,11 +163,11 @@
  },
  "14": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 9,
-   "averageViewPercentage": 77.31,
+   "averageViewPercentage": 83.02,
    "subscribersGained": 0,
-   "views": 55
+   "views": 235
   },
   "day1": {
    "age_h": 40,
@@ -163,15 +177,22 @@
    "views": 236
   },
   "latest": {
-   "age_h": 40,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 68,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 0,
-   "views": 236
+   "views": 239
   },
   "video_id": "NAtzUiA7MJs"
  },
  "15": {
+  "analytics": {
+   "at": "2026-11-24T04:01:25+00:00",
+   "averageViewDuration": 11,
+   "averageViewPercentage": 77.22,
+   "subscribersGained": 0,
+   "views": 517
+  },
   "day1": {
    "age_h": 37,
    "at": "2026-11-22T23:43:10+00:00",
@@ -180,37 +201,78 @@
    "views": 529
   },
   "latest": {
-   "age_h": 37,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 65,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 2,
-   "views": 529
+   "views": 531
   },
   "video_id": "oOtqsFEe6uc"
  },
  "16": {
-  "latest": {
-   "age_h": 16,
-   "at": "2026-11-22T23:43:10+00:00",
+  "analytics": {
+   "at": "2026-11-24T04:01:25+00:00",
+   "averageViewDuration": 11,
+   "averageViewPercentage": 65.73,
+   "subscribersGained": 0,
+   "views": 114
+  },
+  "day1": {
+   "age_h": 44,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 1,
-   "views": 254
+   "views": 326
+  },
+  "latest": {
+   "age_h": 44,
+   "at": "2026-11-24T04:01:25+00:00",
+   "comments": 0,
+   "likes": 1,
+   "views": 326
   },
   "video_id": "cCv1JjHOWaY"
  },
  "17": {
-  "latest": {
-   "age_h": 13,
-   "at": "2026-11-22T23:43:10+00:00",
+  "day1": {
+   "age_h": 41,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 0,
-   "views": 90
+   "views": 100
+  },
+  "latest": {
+   "age_h": 41,
+   "at": "2026-11-24T04:01:25+00:00",
+   "comments": 0,
+   "likes": 0,
+   "views": 100
   },
   "video_id": "GqLz6cONl_A"
  },
+ "18": {
+  "latest": {
+   "age_h": 21,
+   "at": "2026-11-24T04:01:25+00:00",
+   "comments": 0,
+   "likes": 0,
+   "views": 414
+  },
+  "video_id": "rWAZSxS2V0o"
+ },
+ "19": {
+  "latest": {
+   "age_h": 18,
+   "at": "2026-11-24T04:01:25+00:00",
+   "comments": 0,
+   "likes": 1,
+   "views": 317
+  },
+  "video_id": "FVh2JM7ahik"
+ },
  "2": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 8,
    "averageViewPercentage": 55.33,
    "subscribersGained": 0,
@@ -238,17 +300,27 @@
    "views": 69
   },
   "latest": {
-   "age_h": 203,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 231,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 1,
    "views": 69
   },
   "video_id": "1oGZqtxUjmo"
  },
+ "20": {
+  "latest": {
+   "age_h": 9,
+   "at": "2026-11-24T04:01:25+00:00",
+   "comments": 0,
+   "likes": 4,
+   "views": 390
+  },
+  "video_id": "aT8f6YJCUmg"
+ },
  "3": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 10,
    "averageViewPercentage": 68.94,
    "subscribersGained": 0,
@@ -276,8 +348,8 @@
    "views": 112
   },
   "latest": {
-   "age_h": 184,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 212,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 2,
    "views": 112
@@ -286,11 +358,11 @@
  },
  "4": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 13,
-   "averageViewPercentage": 73.28,
+   "averageViewPercentage": 73.39,
    "subscribersGained": 0,
-   "views": 144
+   "views": 145
   },
   "day1": {
    "age_h": 37,
@@ -314,8 +386,8 @@
    "views": 145
   },
   "latest": {
-   "age_h": 179,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 207,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 2,
    "views": 145
@@ -324,7 +396,7 @@
  },
  "5": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 10,
    "averageViewPercentage": 66.09,
    "subscribersGained": 0,
@@ -344,9 +416,16 @@
    "likes": 7,
    "views": 433
   },
+  "day7": {
+   "age_h": 188,
+   "at": "2026-11-24T04:01:25+00:00",
+   "comments": 0,
+   "likes": 7,
+   "views": 434
+  },
   "latest": {
-   "age_h": 160,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 188,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 7,
    "views": 434
@@ -355,7 +434,7 @@
  },
  "6": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 11,
    "averageViewPercentage": 73.45,
    "subscribersGained": 0,
@@ -375,9 +454,16 @@
    "likes": 1,
    "views": 110
   },
+  "day7": {
+   "age_h": 183,
+   "at": "2026-11-24T04:01:25+00:00",
+   "comments": 0,
+   "likes": 1,
+   "views": 111
+  },
   "latest": {
-   "age_h": 155,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 183,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 1,
    "views": 111
@@ -386,7 +472,7 @@
  },
  "7": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 9,
    "averageViewPercentage": 66.03,
    "subscribersGained": 0,
@@ -407,8 +493,8 @@
    "views": 254
   },
   "latest": {
-   "age_h": 136,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 164,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 2,
    "views": 254
@@ -417,11 +503,11 @@
  },
  "8": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 634,
    "averageViewPercentage": 4227.32,
    "subscribersGained": 0,
-   "views": 65
+   "views": 64
   },
   "day1": {
    "age_h": 41,
@@ -438,8 +524,8 @@
    "views": 64
   },
   "latest": {
-   "age_h": 112,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 140,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 1,
    "views": 64
@@ -448,11 +534,11 @@
  },
  "9": {
   "analytics": {
-   "at": "2026-11-22T23:43:10+00:00",
+   "at": "2026-11-24T04:01:25+00:00",
    "averageViewDuration": 12,
    "averageViewPercentage": 69.84,
    "subscribersGained": 0,
-   "views": 156
+   "views": 155
   },
   "day1": {
    "age_h": 38,
@@ -469,8 +555,8 @@
    "views": 155
   },
   "latest": {
-   "age_h": 109,
-   "at": "2026-11-22T23:43:10+00:00",
+   "age_h": 137,
+   "at": "2026-11-24T04:01:25+00:00",
    "comments": 0,
    "likes": 1,
    "views": 156
@@ -514,15 +600,23 @@
   },
   "2026-11-19": {
    "NO_LINK_OTHER": 0,
-   "SHORTS": 245,
-   "YT_OTHER_PAGE": 5,
-   "YT_SEARCH": 12
+   "SHORTS": 244,
+   "YT_OTHER_PAGE": 3,
+   "YT_SEARCH": 13
   },
   "2026-11-20": {
    "NO_LINK_OTHER": 0,
    "SHORTS": 987,
    "YT_OTHER_PAGE": 4,
    "YT_SEARCH": 26
+  },
+  "2026-11-21": {
+   "NO_LINK_OTHER": 0,
+   "SHORTS": 801,
+   "SUBSCRIBER": 2,
+   "YT_CHANNEL": 3,
+   "YT_OTHER_PAGE": 6,
+   "YT_SEARCH": 14
   }
  }
 }
