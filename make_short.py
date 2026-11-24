@@ -91,10 +91,63 @@ def latest_long():
     return (pub[-1]["number"], f"https://youtu.be/{pub[-1]['video_id']}") if pub else None
 
 
+TEASER_DAYS = 3         # 通常動画を投稿してからこの日数のうちに、予告編の Short を1本出す
+
+
+def teaser_plan(history, now=None):
+    """(通常動画の番号, URL, 作品の key, カテゴリ, 何問目, 問題の数) か None。
+    いちばん新しい通常動画(10 Mystery Objects)を投稿してから TEASER_DAYS 日以内で、まだ予告編を出していなければ、
+    その動画の作品から1点(最初の2問と、Shorts に出した作品は避ける)を選ぶ。"""
+    from datetime import timezone
+    now = now or datetime.now(timezone.utc)
+    try:
+        hist = json.loads((Path(__file__).resolve().parent / "longform_history.json").read_text() or "[]")
+    except (OSError, ValueError):
+        return None
+    hist = [h for h in hist if h.get("video_id") and h.get("categories")]
+    if not hist:
+        return None
+    lg = max(hist, key=lambda x: x["number"])
+    if any(h.get("teaser") == lg["number"] for h in history):
+        return None
+    if (now - datetime.fromisoformat(lg["uploaded_at"])).total_seconds() > TEASER_DAYS * 86400:
+        return None
+    used = {h["key"] for h in history}
+    keys, cats = lg["keys"], lg["categories"]
+    for i in sorted(range(len(keys)), key=lambda i: (i < 2, i)):
+        if keys[i] not in used and cats[i] in K.CATEGORIES:
+            return lg["number"], f"https://youtu.be/{lg['video_id']}", keys[i], cats[i], i + 1, len(keys)
+    return None
+
+
+def teaser_overlay(n_long, round_no, total):
+    """最後の約2.5秒、上に「Object 4 of 10 · 10 Mystery Objects #1 / Play all 10 objects!」。"""
+    from PIL import Image, ImageDraw
+    l1 = M.text_layer([f"Object {round_no} of {total} · {total} Mystery Objects #{n_long}"], M.font(M.SANS_BOLD, 40),
+                      M.WHITE, shadow=230)
+    l2 = M.text_layer([f"Play all {total} objects!"], M.font(M.SANS_BOLD, 64), M.GOLD + (255,), shadow=230)
+    hgt = l1.height + l2.height + 36
+    band = Image.new("RGBA", (M.W, hgt), (0, 0, 0, 0))
+    ImageDraw.Draw(band).rounded_rectangle([40, 0, M.W - 40, hgt], radius=28, fill=(8, 12, 24, 232),
+                                           outline=M.GOLD + (220,), width=4)
+    band.alpha_composite(l1, (0, 12))
+    band.alpha_composite(l2, (0, 12 + l1.height))
+
+    def overlay(img, t, end):
+        a = M.ease((t - (end - 2.6)) / 0.4)
+        if a > 0:
+            img.alpha_composite(M.with_alpha(band, a), (0, 80))
+        return img
+    return overlay
+
+
 def description(o, text):
     lead = ("An old everyday tool, seen far too close. Can you tell what it was for? 🔍" if text.get("kitchen")
             else LEADS[text.get("number", 1) % len(LEADS)])
+    tz = text.get("teaser")
     return "\n".join([
+        *([f"▶️ This is object {tz['round']} of {tz['total']} Mystery Objects #{tz['long']}. "
+           f"Play all {tz['total']} objects: {tz['url']}", ""] if tz else []),
         lead,
         "",
         "Choices: " + " / ".join(text["choices"]),
@@ -144,7 +197,26 @@ def main():
     rng = random.Random(f"{now.date()}:{number}")
 
     found, cat = None, None
-    if args.object:
+    teaser = teaser_plan(history) if not args.object and not args.category else None
+    if teaser:
+        # 通常動画の予告編の回(週1本): 通常動画の1点を、いつもの Shorts と同じ形で出し、最後に通常動画へ誘う
+        print(f"予告編: 10 Mystery Objects #{teaser[0]} の {teaser[4]}問目 → {teaser[2]}")
+        try:
+            o = met.obj(int(teaser[2].split(":")[1]))
+            img = met.image(o)
+            s = spot.choose(img)
+        except Exception as e:  # noqa: BLE001
+            print(f"  予告編の作品を取れません({e})")
+            s = None
+        if s:
+            found, cat = (o, img, s), teaser[3]
+            M.OVERLAY = teaser_overlay(teaser[0], teaser[4], teaser[5])
+        else:
+            print("  予告編をやめて、ふつうの回にします")
+            teaser = None
+    if found:
+        pass
+    elif args.object:
         cat = args.category
         o = met.obj(args.object)
         img = met.image(o)
@@ -169,6 +241,10 @@ def main():
     text["choices"], text["correct"] = K.choices_for(cat, rng)
     text["number"] = number
     text["kitchen"] = cat in K.KITCHEN
+    if teaser:
+        text["teaser"] = {"long": teaser[0], "url": teaser[1], "round": teaser[4], "total": teaser[5],
+                          "outro": f"That was object {teaser[4]}. Want {teaser[5] - 1} more? "
+                                   "Tap the link to play the full challenge!"}
     a, b, c3 = [x[:1].lower() + x[1:] if x.lower().startswith(("a ", "an ")) else x for x in text["choices"]]
     text["say_choices"] = f"{text['choices'][0]}, {b}, or {c3}?"
     seconds = video.render(img, s, text, M.make_tts(args.tts), out)
@@ -189,6 +265,7 @@ def main():
         "title": f"[{number}] {title}",
         "title_style": title_style,
         "ending": "short_quiet",
+        "teaser": teaser[0] if teaser else None,     # 予告編の回なら通常動画の番号(teaser_plan が二度出さないため)
         "format": "kitchen" if cat in K.KITCHEN else "object",   # 昔の台所・家事の道具の回と、ふつうの回を比べる       # 説明を読み上げない短い版(2026-11-21〜。stats.md で比べる)
         "description": description(o, text),
         "tags": ["what is it", "guess the object", "close up", "zoom out", "museum", "quiz",
