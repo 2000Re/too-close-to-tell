@@ -283,5 +283,21 @@
     "video_id": "aT8f6YJCUmg",
     "privacy": "public",
     "uploaded_at": "2026-11-23T19:10:29+00:00"
+  },
+  {
+    "number": 21,
+    "key": "met:504214",
+    "category": "mandolin",
+    "object_id": 504214,
+    "object_title": "Mandolin",
+    "date": "2026-11-24",
+    "title": "[21] Someone made this in the 18th century. What is it? 🔍",
+    "answer": "A mandolin",
+    "title_style": "someone_made",
+    "ending": "short_quiet",
+    "teaser": 1,
+    "video_id": "PWvZVrNmZUo",
+    "privacy": "public",
+    "uploaded_at": "2026-11-24T07:24:34+00:00"
   }
 ]
