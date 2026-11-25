@@ -148,7 +148,7 @@ class Photo:
         for p in self.pyramid:                      # 表示の大きさに足りる、いちばん小さい段
             if p.width / self.img.width * w >= AW:
                 src = p
-        k = src.width / self.img.width
+        kx, ky = src.width / self.img.width, src.height / self.img.height   # 縮小は //2 なので縦横で少し違う
         x0, y0 = cx - w / 2, cy - h / 2
         bx0, by0 = max(0.0, x0), max(0.0, y0)
         bx1, by1 = min(float(self.img.width), x0 + w), min(float(self.img.height), y0 + h)
@@ -157,7 +157,8 @@ class Photo:
         s = AW / w
         dx0, dy0 = int(round((bx0 - x0) * s)), int(round((by0 - y0) * s))
         dw, dh = max(1, int(round((bx1 - bx0) * s))), max(1, int(round((by1 - by0) * s)))
-        piece = src.resize((dw, dh), Image.BICUBIC, box=(bx0 * k, by0 * k, bx1 * k, by1 * k))
+        box = (bx0 * kx, by0 * ky, min(float(src.width), bx1 * kx), min(float(src.height), by1 * ky))
+        piece = src.resize((dw, dh), Image.BICUBIC, box=box)
         out.paste(piece, (dx0, dy0))
         return out
 
