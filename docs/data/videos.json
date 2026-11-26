@@ -323,5 +323,18 @@
   "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP237015.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/506721",
   "category": "drum"
+ },
+ {
+  "number": 26,
+  "slug": "26-rowel-spur",
+  "video_id": "s77LDbhMGLE",
+  "uploaded_at": "2026-11-26T18:10:35+00:00",
+  "answer": "A riding spur",
+  "title": "Rowel Spur",
+  "info": "A German riding spur from the fifteenth century. That's over 520 years old!",
+  "meta": "German, 15th century · Iron",
+  "image": "https://images.metmuseum.org/CRDImages/aa/web-large/LC-42_50_287-001.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/29217",
+  "category": "spur"
  }
 ]
