@@ -1,12 +1,12 @@
 # 再生数のまとめ
 
-`stats.py` が毎日作り直す(最終更新 2026-11-25 11:41 JST)。比べるのは投稿から約3日目の再生数(古い動画ほど多くなるのをそろえるため)。「最新の平均」は投稿からの日数がそろっていないので参考。
+`stats.py` が毎日作り直す(最終更新 2026-11-26 10:53 JST)。比べるのは投稿から約3日目の再生数(古い動画ほど多くなるのをそろえるため)。「最新の平均」は投稿からの日数がそろっていないので参考。
 
 ## 全体
 
 | 値 | 3日目の本数 | 平均 | 中央値 | 最新の本数 | 最新の平均(参考) | 平均視聴割合(%) |
 |---|---:|---:|---:|---:|---:|---:|
-| すべて | 15 | 252 | 191 | 22 | 250 | 301 |
+| すべて | 17 | 248 | 191 | 24 | 240 | 269 |
 
 ## title_style
 
@@ -14,18 +14,19 @@
 |---|---:|---:|---:|---:|---:|---:|
 | zoom | 1 | 433 | 433 | 1 | 436 | 66 |
 | over_age | 3 | 353 | 423 | 3 | 353 | 79 |
-| age | 2 | 332 | 332 | 2 | 332 | 73 |
-| look_closer | 1 | 254 | 254 | 2 | 334 | 71 |
+| age | 2 | 332 | 332 | 3 | 276 | 73 |
+| kitchen_long_ago | 1 | 325 | 325 | 1 | 325 | 64 |
+| look_closer | 1 | 254 | 254 | 2 | 335 | 75 |
 | age_culture | 1 | 239 | 239 | 1 | 239 | 82 |
 | (なし) | 2 | 236 | 236 | 2 | 230 | 60 |
 | five_seconds | 1 | 191 | 191 | 1 | 191 | 48 |
-| someone_made | 1 | 155 | 155 | 2 | 120 | 70 |
-| made_when | 1 | 145 | 145 | 2 | 111 | 73 |
-| treasure | 1 | 110 | 110 | 2 | 108 | 70 |
+| someone_made | 1 | 155 | 155 | 2 | 128 | 74 |
+| made_when | 1 | 145 | 145 | 2 | 113 | 73 |
+| treasure | 2 | 106 | 106 | 2 | 109 | 71 |
 | museum | 1 | 64 | 64 | 1 | 64 | 4227 |
-| kitchen_long_ago | 0 |  |  | 1 | 325 | 63 |
-| country | 0 |  |  | 1 | 320 |  |
-| kitchen_mystery | 0 |  |  | 1 | 390 |  |
+| country | 0 |  |  | 1 | 321 | 88 |
+| kitchen_mystery | 0 |  |  | 1 | 393 | 63 |
+| kitchen_old | 0 |  |  | 1 | 73 |  |
 
 ## category
 
@@ -35,45 +36,49 @@
 | drum | 1 | 530 | 530 | 1 | 530 | 78 |
 | shoes | 1 | 433 | 433 | 1 | 436 | 66 |
 | basket | 1 | 423 | 423 | 1 | 423 | 91 |
-| snuffbox | 1 | 404 | 404 | 2 | 234 | 64 |
+| snuffbox | 1 | 404 | 404 | 2 | 236 | 64 |
+| sugar_tongs | 1 | 325 | 325 | 1 | 325 | 64 |
 | lute | 1 | 254 | 254 | 1 | 254 | 66 |
 | teacup | 1 | 239 | 239 | 1 | 239 | 82 |
 | watch | 1 | 191 | 191 | 1 | 191 | 48 |
-| violin | 1 | 155 | 155 | 2 | 238 | 70 |
+| violin | 1 | 155 | 155 | 2 | 238 | 79 |
 | guitar | 1 | 145 | 145 | 1 | 145 | 73 |
 | shield | 1 | 112 | 112 | 1 | 112 | 69 |
 | horn | 1 | 110 | 110 | 1 | 117 | 73 |
 | teapot | 1 | 105 | 105 | 1 | 105 | 68 |
+| trumpet | 2 | 82 | 82 | 2 | 82 | 2148 |
 | helmet | 1 | 68 | 68 | 1 | 69 | 55 |
-| trumpet | 1 | 64 | 64 | 2 | 82 | 2147 |
-| sugar_tongs | 0 |  |  | 1 | 325 | 63 |
-| bottle | 0 |  |  | 1 | 415 | 75 |
-| mortar | 0 |  |  | 1 | 390 |  |
-| mandolin | 0 |  |  | 1 | 84 |  |
+| bottle | 0 |  |  | 1 | 416 | 83 |
+| mortar | 0 |  |  | 1 | 393 | 63 |
+| mandolin | 0 |  |  | 1 | 100 | 78 |
+| sundial | 0 |  |  | 1 | 164 |  |
+| nutmeg | 0 |  |  | 1 | 73 |  |
 
 ## ending
 
 | 値 | 3日目の本数 | 平均 | 中央値 | 最新の本数 | 最新の平均(参考) | 平均視聴割合(%) |
 |---|---:|---:|---:|---:|---:|---:|
-| short_quiet | 2 | 384 | 384 | 9 | 276 | 73 |
+| short_quiet | 4 | 299 | 282 | 11 | 249 | 75 |
 | (なし) | 13 | 232 | 155 | 13 | 232 | 388 |
 
 ## 投稿の時間帯
 
 | 値 | 3日目の本数 | 平均 | 中央値 | 最新の本数 | 最新の平均(参考) | 平均視聴割合(%) |
 |---|---:|---:|---:|---:|---:|---:|
-| 19時台 | 5 | 323 | 404 | 7 | 289 | 73 |
-| 16時台 | 7 | 264 | 239 | 10 | 267 | 530 |
+| 19時台 | 6 | 286 | 280 | 7 | 290 | 75 |
+| 16時台 | 8 | 271 | 246 | 10 | 269 | 486 |
 | 21時台 | 3 | 108 | 110 | 3 | 110 | 67 |
-| 04時台 | 0 |  |  | 1 | 390 |  |
-| 03時台 | 0 |  |  | 1 | 77 |  |
+| 03時台 | 0 |  |  | 2 | 77 |  |
+| 04時台 | 0 |  |  | 1 | 393 | 63 |
+| 15時台 | 0 |  |  | 1 | 164 |  |
 
 ## 日別の再生と流入元(直近28日、YouTube Analytics。2〜3日遅れ)
 
 | 日付 | 再生(全体) | ショート フィード | 割合 |
 |---|---:|---:|---:|
+| 2026-11-23 | 1028 | 1003 | 98% |
 | 2026-11-22 | 486 | 475 | 98% |
-| 2026-11-21 | 826 | 801 | 97% |
+| 2026-11-21 | 820 | 795 | 97% |
 | 2026-11-20 | 1017 | 987 | 97% |
 | 2026-11-19 | 260 | 244 | 94% |
 | 2026-11-18 | 267 | 251 | 94% |
@@ -86,21 +91,23 @@
 
 | # | 答え | 投稿(JST) | 1日目 | 3日目 | 7日目 | 最新 | 高評価 | コメント | 平均視聴割合 | 登録者+ |
 |---:|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| [22](https://youtube.com/shorts/1GDUWa8mHqc) | A snuffbox | 11-25 03:10 |  |  |  | 77 | 0 | 0 |  |  |
-| [21](https://youtube.com/shorts/PWvZVrNmZUo) | A mandolin | 11-24 16:24 |  |  |  | 84 | 1 | 0 |  |  |
-| [20](https://youtube.com/shorts/aT8f6YJCUmg) | A mortar and pestle | 11-24 04:10 | 390 |  |  | 390 | 4 | 0 |  |  |
-| [19](https://youtube.com/shorts/FVh2JM7ahik) | A violin | 11-23 19:09 | 320 |  |  | 320 | 1 | 0 |  |  |
-| [18](https://youtube.com/shorts/rWAZSxS2V0o) | A bottle | 11-23 16:10 | 415 |  |  | 415 | 0 | 0 | 75% | 0 |
-| [17](https://youtube.com/shorts/GqLz6cONl_A) | A trumpet | 11-22 19:43 | 100 |  |  | 100 | 0 | 0 | 67% | 0 |
-| [16](https://youtube.com/shorts/cCv1JjHOWaY) | A pair of sugar tongs | 11-22 16:43 | 326 |  |  | 325 | 1 | 0 | 63% | 1 |
+| [24](https://youtube.com/shorts/UFXnPKE8DKk) | A nutmeg grater | 11-26 03:10 |  |  |  | 73 | 1 | 0 |  |  |
+| [23](https://youtube.com/shorts/gu7MOdzbPVo) | A sundial | 11-25 15:10 |  |  |  | 164 | 3 | 0 |  |  |
+| [22](https://youtube.com/shorts/1GDUWa8mHqc) | A snuffbox | 11-25 03:10 | 81 |  |  | 81 | 0 | 0 |  |  |
+| [21](https://youtube.com/shorts/PWvZVrNmZUo) | A mandolin | 11-24 16:24 | 100 |  |  | 100 | 1 | 0 | 78% | 0 |
+| [20](https://youtube.com/shorts/aT8f6YJCUmg) | A mortar and pestle | 11-24 04:10 | 390 |  |  | 393 | 4 | 0 | 63% | 0 |
+| [19](https://youtube.com/shorts/FVh2JM7ahik) | A violin | 11-23 19:09 | 320 |  |  | 321 | 1 | 0 | 88% | 0 |
+| [18](https://youtube.com/shorts/rWAZSxS2V0o) | A bottle | 11-23 16:10 | 415 |  |  | 416 | 0 | 0 | 83% | 0 |
+| [17](https://youtube.com/shorts/GqLz6cONl_A) | A trumpet | 11-22 19:43 | 100 | 101 |  | 101 | 0 | 0 | 68% | 0 |
+| [16](https://youtube.com/shorts/cCv1JjHOWaY) | A pair of sugar tongs | 11-22 16:43 | 326 | 325 |  | 325 | 1 | 0 | 64% | 1 |
 | [15](https://youtube.com/shorts/oOtqsFEe6uc) | A drum | 11-21 19:43 | 529 | 530 |  | 530 | 2 | 0 | 78% | 0 |
 | [14](https://youtube.com/shorts/NAtzUiA7MJs) | A teacup | 11-21 16:43 | 236 | 239 |  | 239 | 0 | 0 | 82% | 0 |
 | [13](https://youtube.com/shorts/tQmPabylZ14) | A basket | 11-20 19:43 | 423 | 423 |  | 423 | 2 | 0 | 91% | 0 |
 | [12](https://youtube.com/shorts/VN7L4eWd5H4) | A chess piece | 11-20 16:45 | 553 | 553 |  | 553 | 2 | 0 | 77% | 0 |
 | [11](https://youtube.com/shorts/28QQx70N1cA) | A teapot | 11-19 19:43 | 103 | 105 |  | 105 | 2 | 0 | 68% | 0 |
 | [10](https://youtube.com/shorts/1bJh4SgFTPI) | A pocket watch | 11-19 16:46 | 188 | 191 |  | 191 | 2 | 0 | 48% | 0 |
-| [9](https://youtube.com/shorts/shYQUBCQ8Z8) | A violin | 11-18 19:49 | 154 | 155 |  | 156 | 1 | 0 | 70% | 0 |
-| [8](https://youtube.com/shorts/vakca9H8m80) | A trumpet | 11-18 16:43 | 64 | 64 |  | 64 | 1 | 0 | 4227% | 0 |
+| [9](https://youtube.com/shorts/shYQUBCQ8Z8) | A violin | 11-18 19:49 | 154 | 155 | 156 | 156 | 1 | 0 | 70% | 0 |
+| [8](https://youtube.com/shorts/vakca9H8m80) | A trumpet | 11-18 16:43 | 64 | 64 | 64 | 64 | 1 | 0 | 4227% | 0 |
 | [7](https://youtube.com/shorts/sKDZeGRUp3Q) | A lute | 11-17 16:43 | 254 | 254 | 254 | 254 | 2 | 0 | 66% | 0 |
 | [6](https://youtube.com/shorts/mtTgA7PAfTI) | A horn | 11-16 21:43 | 110 | 110 | 111 | 117 | 1 | 0 | 73% | 0 |
 | [5](https://youtube.com/shorts/PZptOnt5-W8) | A shoe | 11-16 16:43 | 434 | 433 | 434 | 436 | 7 | 0 | 66% | 0 |
