@@ -310,5 +310,18 @@
   "image": "https://images.metmuseum.org/CRDImages/ad/web-large/DP233271.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/5412",
   "category": "nutmeg"
+ },
+ {
+  "number": 25,
+  "slug": "25-drum",
+  "video_id": "rA5tLUaNlAg",
+  "uploaded_at": "2026-11-26T06:19:39+00:00",
+  "answer": "A drum",
+  "title": "Drum",
+  "info": "A Paracas drum. It's made of ceramic and polychrome.",
+  "meta": "Paracas, 300–200 BCE · Ceramic, polychrome",
+  "image": "https://images.metmuseum.org/CRDImages/mi/web-large/DP237015.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/506721",
+  "category": "drum"
  }
 ]
