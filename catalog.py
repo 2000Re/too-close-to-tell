@@ -69,6 +69,7 @@ CATEGORIES = {
 # 昔の台所・家事の道具の回。番号が KITCHEN_EVERY の倍数の回は、ここから選ぶ(それ以外の回では選ばない)
 KITCHEN = {"jagging", "nutmeg", "corkscrew", "sugar_tongs", "mortar", "marrow", "trivet", "toaster"}
 KITCHEN_EVERY = 4
+KITCHEN_TRIES = 3       # 昔の道具の回で、この種類だけ試してだめならふつうのカテゴリにする
 
 # 今の暮らしで見かける身近な物。2026-11-17 の stats.md で、靴(422)は兜・盾・角笛(66〜108)の3倍以上見られていたので、
 # 身近な物を中心に出す(EVERYDAY_SHARE の割合)。それ以外(武具・古い楽器・天文の道具など)もときどき出す
@@ -138,18 +139,24 @@ def is_kitchen_turn(number):
     return number % KITCHEN_EVERY == 0
 
 
-def next_category(history, rng, number=None):
+def next_category(history, rng, number=None, tried=()):
     """直近 RECENT 本に出ていないカテゴリから選ぶ。EVERYDAY_SHARE の割合で身近な物(EVERYDAY)から選ぶ。
-    番号が KITCHEN_EVERY の倍数の回は、昔の台所・家事の道具(KITCHEN)から選ぶ(直近 KITCHEN に出たものは後回し)。"""
+    番号が KITCHEN_EVERY の倍数の回は、昔の台所・家事の道具(KITCHEN)から選ぶ(最近出したものは後回し)。
+    tried: この回ですでに試して、使える写真がなかったカテゴリ。昔の道具を KITCHEN_TRIES 種類試してもだめなら、
+    ふつうのカテゴリにする(2026-11-28: 昔の道具の多くは、美術館の写真がどアップに向かず、投稿が止まったため)。"""
     recent = [h.get("category") for h in history[-RECENT:]]
-    if number and is_kitchen_turn(number):
+    if number and is_kitchen_turn(number) and sum(1 for c in tried if c in KITCHEN) < KITCHEN_TRIES:
         done = [h.get("category") for h in history if h.get("category") in KITCHEN]
-        tried = recent[-6:]
-        pool = [c for c in KITCHEN if c not in done[-(len(KITCHEN) - 1):] and c not in tried] or \
-            [c for c in KITCHEN if c not in tried] or sorted(KITCHEN)
-        return rng.choice(sorted(pool))
-    cats = [c for c in CATEGORIES if c not in recent and c not in KITCHEN] or \
-        [c for c in CATEGORIES if c not in KITCHEN]
+        pool = [c for c in KITCHEN if c not in tried]
+        fresh = [c for c in pool if c not in done[-3:]]
+        if fresh or pool:
+            # 最近出していない道具を先に。ただし、これまでに出せた道具(写真が向いていた)も候補に残す
+            worked = [c for c in pool if c in done]
+            pick_from = fresh if fresh and rng.random() < 0.5 else (worked or pool)
+            return rng.choice(sorted(pick_from))
+    tried_set = set(tried)
+    cats = [c for c in CATEGORIES if c not in recent and c not in KITCHEN and c not in tried_set] or \
+        [c for c in CATEGORIES if c not in KITCHEN and c not in tried_set]
     every = [c for c in cats if c in EVERYDAY]
     other = [c for c in cats if c not in EVERYDAY]
     if every and (not other or rng.random() < EVERYDAY_SHARE):
