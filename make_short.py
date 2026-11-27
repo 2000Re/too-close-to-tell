@@ -230,7 +230,7 @@ def main():
     else:
         tried = []
         for _ in range(6):
-            cat = args.category or K.next_category(history + [{"category": c} for c in tried], rng, number)
+            cat = args.category or K.next_category(history + [{"category": c} for c in tried], rng, number, tried)
             print("カテゴリ:", cat)
             found = find(cat, used, rng, print)
             if found:
