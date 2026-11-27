@@ -379,5 +379,21 @@
     "video_id": "s77LDbhMGLE",
     "privacy": "public",
     "uploaded_at": "2026-11-26T18:10:35+00:00"
+  },
+  {
+    "number": 27,
+    "key": "met:156529",
+    "category": "hat",
+    "object_id": 156529,
+    "object_title": "Hat",
+    "date": "2026-11-27",
+    "title": "[27] This is over 130 years old. Can you tell what it is? 🔍",
+    "answer": "A hat",
+    "title_style": "over_age",
+    "ending": "short_quiet",
+    "teaser": null,
+    "video_id": "VDd8UQD7M_E",
+    "privacy": "public",
+    "uploaded_at": "2026-11-27T06:10:13+00:00"
   }
 ]

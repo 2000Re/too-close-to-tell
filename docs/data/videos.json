@@ -336,5 +336,18 @@
   "image": "https://images.metmuseum.org/CRDImages/aa/web-large/LC-42_50_287-001.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/29217",
   "category": "spur"
+ },
+ {
+  "number": 27,
+  "slug": "27-hat",
+  "video_id": "VDd8UQD7M_E",
+  "uploaded_at": "2026-11-27T06:10:13+00:00",
+  "answer": "A hat",
+  "title": "Hat",
+  "info": "An American hat by Mlle. Louise, from around 1890. That's over 130 years old!",
+  "meta": "Mlle. Louise, ca. 1890 · bast fiber, cotton, birds, feathers",
+  "image": "https://images.metmuseum.org/CRDImages/ci/web-large/43.118.49_CP3.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/156529",
+  "category": "hat"
  }
 ]
