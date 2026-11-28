@@ -14,6 +14,7 @@ from zoneinfo import ZoneInfo
 
 import catalog as K
 import describe
+import locales
 import media as M
 import met
 import spot
@@ -271,6 +272,7 @@ def main():
         "teaser": teaser[0] if teaser else None,     # 予告編の回なら通常動画の番号(teaser_plan が二度出さないため)
         "format": "kitchen" if cat in K.KITCHEN else "object",   # 昔の台所・家事の道具の回と、ふつうの回を比べる       # 説明を読み上げない短い版(2026-11-21〜。stats.md で比べる)
         "description": description(o, text),
+        "localizations": locales.build(title_style, number, o, description(o, text), kitchen=cat in K.KITCHEN),
         "tags": ["what is it", "guess the object", "close up", "zoom out", "museum", "quiz",
                  K.CATEGORIES[cat][4]] + (["antique kitchen tools", "old kitchen gadgets", "history"]
                                           if cat in K.KITCHEN else []),

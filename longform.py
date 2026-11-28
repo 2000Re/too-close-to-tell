@@ -494,6 +494,8 @@ def build(args):
         "description": description(number, rounds, starts).replace("<", "‹").replace(">", "›")[:4900],
         "tags": ["what is it", "guess the object", "close up", "zoom out", "museum", "quiz", "mystery objects"],
     }
+    import locales
+    meta["localizations"] = locales.build_long(n, number, meta["description"])
     (out / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n")
     print(f"完了: {out / 'video.mp4'}({total:.0f} 秒)")
     print(meta["description"])
