@@ -98,6 +98,13 @@ def page(title, description, body, depth, canonical, extra_head=""):
 """
 
 
+# 作品の写真が開けないとき(美術館が画像を差し替えたなど)は、崩れた画像の代わりにこの表示を出す。
+# 週1回の site_images.py が URL を直すまでのつなぎ
+def on_error(text):
+    return ("this.onerror=null;var d=document.createElement('div');d.className='img-missing';"
+            f"d.textContent='{text}';this.replaceWith(d)")
+
+
 def card(x, prefix):
     """一覧のカード。答えが分からないよう、どアップの1枚と番号だけを出す。"""
     return f"""<a class="card" href="{prefix}{e(x['slug'])}/">
@@ -131,7 +138,8 @@ def video_page(x, prev, nxt):
       <button type="button" class="reveal">Show the answer</button>
       <div class="answer" hidden>
         <p class="answer-year">It's <strong>{e(x['answer'].lower())}</strong>!</p>
-        <img class="artwork" src="{e(x['image'])}" alt="{e(x['title'])}" loading="lazy">
+        <img class="artwork" src="{e(x['image'])}" alt="{e(x['title'])}" loading="lazy"
+          onerror="{e(on_error('Photo not available here. See it at the museum link below.'))}">
         <h2>{e(x['title'])}</h2>
         <p>{e(x['info'])}</p>
         <p class="muted">{e(x['meta'])}</p>
