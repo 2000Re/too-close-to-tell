@@ -362,5 +362,18 @@
   "image": "https://images.metmuseum.org/CRDImages/es/web-large/DP-33146-001.jpg",
   "museum_url": "https://www.metmuseum.org/art/collection/search/893676",
   "category": "nutmeg"
+ },
+ {
+  "number": 29,
+  "slug": "29-shield",
+  "video_id": "k6DLJELXe1s",
+  "uploaded_at": "2026-11-28T06:09:53+00:00",
+  "answer": "A shield",
+  "title": "Shield",
+  "info": "A Nias shield. That's over 120 years old!",
+  "meta": "Nias, 18th–19th century · Wood, cane",
+  "image": "https://images.metmuseum.org/CRDImages/aa/web-large/LC-36_25_648-001.jpg",
+  "museum_url": "https://www.metmuseum.org/art/collection/search/31821",
+  "category": "shield"
  }
 ]
